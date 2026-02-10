@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ============================================
+   BizDays Global — Design Tokens
+   Corporate blue/grey palette
+   ============================================ */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Primary — Corporate Blue */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+  --color-primary-950: #172554;
+
+  /* Grey — Neutral corporate */
+  --color-grey-50: #f9fafb;
+  --color-grey-100: #f3f4f6;
+  --color-grey-200: #e5e7eb;
+  --color-grey-300: #d1d5db;
+  --color-grey-400: #9ca3af;
+  --color-grey-500: #6b7280;
+  --color-grey-600: #4b5563;
+  --color-grey-700: #374151;
+  --color-grey-800: #1f2937;
+  --color-grey-900: #111827;
+  --color-grey-950: #030712;
+
+  /* Semantic */
+  --color-background: #ffffff;
+  --color-foreground: var(--color-grey-900);
+  --color-muted: var(--color-grey-100);
+  --color-muted-foreground: var(--color-grey-500);
+  --color-border: var(--color-grey-200);
+  --color-ring: var(--color-primary-500);
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+
+  /* Font family */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Spacing / Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================
+   Base styles
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  border-color: var(--color-border);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  color: var(--color-foreground);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus ring utility */
+.focus-ring {
+  @apply outline-none ring-2 ring-ring ring-offset-2;
+}
+
+/* ============================================
+   Dark mode (future-ready)
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--color-grey-950);
+    --color-foreground: var(--color-grey-100);
+    --color-muted: var(--color-grey-800);
+    --color-muted-foreground: var(--color-grey-400);
+    --color-border: var(--color-grey-700);
+  }
 }

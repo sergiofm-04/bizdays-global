@@ -1,5 +1,5 @@
 // ============================================
-// Contact Form — Client Component
+// Contact Form â€” Client Component
 // ============================================
 
 "use client";
@@ -27,7 +27,7 @@ function ContactForm({ dict }: ContactFormProps) {
 
     // TODO: Integrate with a form backend service (Formspree, Web3Forms, etc.)
     // For now, open a mailto link as fallback
-    const mailtoLink = `mailto:{{LEGAL_EMAIL}}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
+    const mailtoLink = `mailto:legal@bizdaysglobal.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
     window.open(mailtoLink, "_blank");
     setSubmitted(true);
   }

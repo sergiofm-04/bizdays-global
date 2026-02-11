@@ -60,7 +60,7 @@ export default async function LangLayout({ children, params }: LangLayoutProps) 
       <body className={`${inter.variable} font-sans antialiased min-h-screen flex flex-col`}>
         <Header lang={locale} />
         <main className="flex-1">{children}</main>
-        <Footer dict={dict.common.footer} />
+        <Footer dict={dict.common.footer} lang={locale} />
       </body>
     </html>
   );

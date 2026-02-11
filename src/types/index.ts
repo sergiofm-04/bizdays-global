@@ -72,8 +72,65 @@ export interface Dictionary {
     footer: {
       tagline: string;
       disclaimer: string;
+      links: {
+        privacy: string;
+        terms: string;
+        cookies: string;
+        legal: string;
+        contact: string;
+      };
     };
   };
+  legal: {
+    privacy: {
+      title: string;
+      description: string;
+      lastUpdated: string;
+      sections: LegalSection[];
+    };
+    terms: {
+      title: string;
+      description: string;
+      lastUpdated: string;
+      sections: LegalSection[];
+    };
+    cookies: {
+      title: string;
+      description: string;
+      lastUpdated: string;
+      sections: LegalSection[];
+    };
+    legalNotice: {
+      title: string;
+      description: string;
+      lastUpdated: string;
+      sections: LegalSection[];
+    };
+  };
+  contact: {
+    title: string;
+    description: string;
+    subtitle: string;
+    form: {
+      name: string;
+      email: string;
+      subject: string;
+      message: string;
+      submit: string;
+      successMessage: string;
+    };
+    info: {
+      title: string;
+      email: string;
+      responseTime: string;
+    };
+  };
+}
+
+/** A section within a legal page */
+export interface LegalSection {
+  heading: string;
+  content: string;
 }
 
 /** JSON-LD SoftwareApplication schema */

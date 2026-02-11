@@ -5,7 +5,6 @@ import {
   Truck,
   Scale,
   Clock,
-  ArrowRight,
   MapPin,
 } from "lucide-react";
 
@@ -165,38 +164,6 @@ export default function ComingSoonPage() {
             <span className="rounded-full border border-primary-200 bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-600">
               +158 more
             </span>
-          </div>
-        </section>
-
-        {/* ── CTA / Notify ── */}
-        <section className="mt-16 w-full max-w-lg text-center">
-          <div className="rounded-2xl border border-grey-100 bg-white/80 p-8 shadow-sm backdrop-blur-sm">
-            <h2 className="text-lg font-semibold text-grey-900">
-              Get notified at launch
-            </h2>
-            <p className="mt-1 text-sm text-grey-500">
-              Recibe una notificación cuando lancemos.
-            </p>
-            <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-              <input
-                type="email"
-                placeholder="you@company.com"
-                aria-label="Email address"
-                className="flex-1 rounded-lg border border-grey-200 bg-white px-4 py-2.5 text-sm text-grey-900 placeholder:text-grey-400 outline-none transition-colors focus:border-primary-400 focus:ring-2 focus:ring-primary-100"
-                disabled
-              />
-              <button
-                type="button"
-                disabled
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-600 to-primary-500 px-5 py-2.5 text-sm font-medium text-white shadow-sm shadow-primary-500/25 transition-all hover:shadow-md disabled:opacity-60 disabled:cursor-not-allowed"
-              >
-                Notify me
-                <ArrowRight className="h-4 w-4" />
-              </button>
-            </div>
-            <p className="mt-3 text-xs text-grey-400">
-              Coming soon — Próximamente
-            </p>
           </div>
         </section>
 

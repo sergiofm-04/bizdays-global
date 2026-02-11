@@ -50,18 +50,14 @@ export default async function LangLayout({ children, params }: LangLayoutProps) 
   const jsonLd = generateJsonLd();
 
   return (
-    <html lang={locale}>
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
-      <body className={`${inter.variable} font-sans antialiased min-h-screen flex flex-col`}>
-        <Header lang={locale} />
-        <main className="flex-1">{children}</main>
-        <Footer dict={dict.common.footer} lang={locale} />
-      </body>
-    </html>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <Header lang={locale} />
+      <main className="flex-1">{children}</main>
+      <Footer dict={dict.common.footer} lang={locale} />
+    </>
   );
 }

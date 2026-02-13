@@ -1,20 +1,36 @@
 // ============================================
 // Home Page — /[lang]/
-// Server Component → passes data to Client Calculator
+// Rich SEO content + Calculator
 // ============================================
 
 import { notFound } from "next/navigation";
+import Link from "next/link";
+import {
+  Globe,
+  Zap,
+  CalendarCheck,
+  ArrowLeftRight,
+  UserX,
+  FileText,
+  Truck,
+  Users,
+  Scale,
+  LayoutDashboard,
+  ChevronDown,
+  ArrowRight,
+} from "lucide-react";
 
 import { isValidLocale, getDictionary } from "@/lib/i18n";
 import { getSupportedCountries } from "@/lib/countries";
 import { CalculatorForm } from "@/components/calculator/calculator-form";
-import { AdBanner } from "@/components/ads/ad-banner";
-import { AffiliateBanner } from "@/components/ads/affiliate-banner";
 import type { Locale } from "@/types";
 
 interface HomePageProps {
   params: Promise<{ lang: string }>;
 }
+
+const FEATURE_ICONS = [Globe, Zap, CalendarCheck, ArrowLeftRight, UserX, FileText];
+const USE_CASE_ICONS = [Truck, Users, Scale, LayoutDashboard];
 
 export default async function HomePage({ params }: HomePageProps) {
   const { lang } = await params;
@@ -26,25 +42,228 @@ export default async function HomePage({ params }: HomePageProps) {
   const locale = lang as Locale;
   const dict = getDictionary(locale);
   const countries = getSupportedCountries();
+  const h = dict.home;
 
   return (
-    <div className="max-w-2xl mx-auto px-4 sm:px-6 py-8 space-y-8">
-      {/* Top Ad Banner */}
-      <AdBanner slot="top-banner" format="horizontal" />
+    <>
+      {/* ── Hero ── */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-primary-50/50 via-white to-white">
+        {/* Subtle grid pattern */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, #1e40af 1px, transparent 1px), linear-gradient(to bottom, #1e40af 1px, transparent 1px)",
+            backgroundSize: "64px 64px",
+          }}
+        />
+        <div className="pointer-events-none absolute -top-24 right-0 h-[400px] w-[400px] rounded-full bg-primary-100/40 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 -left-24 h-[300px] w-[300px] rounded-full bg-primary-200/30 blur-3xl" />
 
-      {/* Calculator */}
-      <CalculatorForm countries={countries} dict={dict.calculator} />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8 sm:pt-24 sm:pb-12">
+          <div className="text-center max-w-3xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-grey-900 leading-[1.1]">
+              {h.hero.title}{" "}
+              <span className="bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">
+                {h.hero.highlight}
+              </span>
+            </h1>
+            <p className="mt-6 text-lg sm:text-xl text-grey-500 leading-relaxed max-w-2xl mx-auto">
+              {h.hero.subtitle}
+            </p>
 
-      {/* Affiliate Banner — below result */}
-      <AffiliateBanner
-        productName="Monday.com"
-        href="https://monday.com"
-        ctaText={locale === "es" ? "Pruébalo gratis →" : "Try it free →"}
-        disclaimer={dict.common.affiliateDisclaimer}
-      />
+            {/* Stats bar */}
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+              {h.stats.map((stat, i) => (
+                <div key={i} className="text-center">
+                  <div className="text-2xl sm:text-3xl font-extrabold text-grey-900">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs sm:text-sm text-grey-400 font-medium mt-0.5">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
 
-      {/* Bottom Ad Banner */}
-      <AdBanner slot="bottom-banner" format="horizontal" />
-    </div>
+            {/* Scroll indicator */}
+            <div className="mt-10 flex justify-center">
+              <a
+                href="#calculator"
+                className="inline-flex flex-col items-center gap-1 text-grey-400 hover:text-primary-500 transition-colors"
+              >
+                <ChevronDown className="h-5 w-5 animate-bounce" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Calculator ── */}
+      <section id="calculator" className="scroll-mt-20 py-12 sm:py-16 bg-white">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6">
+          <CalculatorForm countries={countries} dict={dict.calculator} />
+        </div>
+      </section>
+
+      {/* ── Features ── */}
+      <section className="py-16 sm:py-24 bg-grey-50/50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-grey-900 tracking-tight">
+              {h.features.title}
+            </h2>
+          </div>
+
+          <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {h.features.items.map((feature, i) => {
+              const Icon = FEATURE_ICONS[i] ?? Globe;
+              return (
+                <div
+                  key={i}
+                  className="group relative rounded-2xl border border-grey-100 bg-white p-6 sm:p-7 transition-all duration-300 hover:border-primary-200 hover:shadow-lg hover:shadow-primary-500/5 hover:-translate-y-0.5"
+                >
+                  <div className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-primary-50 text-primary-600 transition-colors group-hover:bg-primary-100">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 text-base font-semibold text-grey-900">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-grey-500">
+                    {feature.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── How It Works ── */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-grey-900 tracking-tight">
+              {h.howItWorks.title}
+            </h2>
+          </div>
+
+          <div className="grid gap-8 sm:grid-cols-3">
+            {h.howItWorks.steps.map((step, i) => (
+              <div key={i} className="relative text-center">
+                {/* Step number */}
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary-500 to-primary-700 text-white font-bold text-lg shadow-md shadow-primary-500/20">
+                  {i + 1}
+                </div>
+                {/* Connector line (desktop) */}
+                {i < h.howItWorks.steps.length - 1 && (
+                  <div className="hidden sm:block absolute top-6 left-[calc(50%+30px)] w-[calc(100%-60px)] h-px bg-gradient-to-r from-primary-200 to-primary-100" />
+                )}
+                <h3 className="mt-5 text-base font-semibold text-grey-900">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-grey-500 max-w-xs mx-auto">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Use Cases ── */}
+      <section className="py-16 sm:py-24 bg-gradient-to-b from-grey-50/50 to-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-grey-900 tracking-tight">
+              {h.useCases.title}
+            </h2>
+            <p className="mt-4 text-lg text-grey-500">
+              {h.useCases.subtitle}
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2">
+            {h.useCases.items.map((uc, i) => {
+              const Icon = USE_CASE_ICONS[i] ?? Truck;
+              return (
+                <div
+                  key={i}
+                  className="flex gap-5 rounded-2xl border border-grey-100 bg-white p-6 transition-all duration-300 hover:border-primary-200 hover:shadow-lg hover:shadow-primary-500/5"
+                >
+                  <div className="flex-shrink-0">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-base font-semibold text-grey-900">
+                      {uc.title}
+                    </h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-grey-500">
+                      {uc.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-grey-900 tracking-tight">
+              {h.faq.title}
+            </h2>
+          </div>
+
+          <div className="divide-y divide-grey-100">
+            {h.faq.items.map((item, i) => (
+              <details key={i} className="group py-5">
+                <summary className="flex cursor-pointer items-center justify-between text-left">
+                  <h3 className="text-base font-medium text-grey-900 pr-4 group-open:text-primary-700 transition-colors">
+                    {item.question}
+                  </h3>
+                  <ChevronDown className="h-5 w-5 flex-shrink-0 text-grey-400 transition-transform duration-200 group-open:rotate-180 group-open:text-primary-500" />
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-grey-500 pr-12">
+                  {item.answer}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Bottom CTA ── */}
+      <section className="py-16 sm:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-600 to-primary-800 px-8 py-14 sm:px-14 sm:py-16 text-center">
+            {/* Decorative circles */}
+            <div className="pointer-events-none absolute -top-12 -right-12 h-48 w-48 rounded-full bg-white/5" />
+            <div className="pointer-events-none absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-white/5" />
+
+            <div className="relative">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white">
+                {h.cta.title}
+              </h2>
+              <p className="mt-3 text-primary-100 text-lg">
+                {h.cta.subtitle}
+              </p>
+              <a
+                href="#calculator"
+                className="mt-8 inline-flex items-center gap-2 rounded-xl bg-white px-7 py-3.5 text-sm font-semibold text-primary-700 shadow-lg shadow-primary-900/20 transition-all hover:shadow-xl hover:-translate-y-0.5"
+              >
+                {h.cta.button}
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

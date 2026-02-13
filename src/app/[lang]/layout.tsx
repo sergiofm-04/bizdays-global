@@ -55,7 +55,7 @@ export default async function LangLayout({ children, params }: LangLayoutProps) 
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Header lang={locale} />
+      <Header lang={locale} nav={dict.nav} />
       <main className="flex-1">{children}</main>
       <Footer dict={dict.common.footer} lang={locale} />
     </>

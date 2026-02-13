@@ -48,6 +48,41 @@ export interface Dictionary {
     titleTemplate: string;
     descriptionTemplate: string;
   };
+  home: {
+    hero: {
+      title: string;
+      highlight: string;
+      subtitle: string;
+    };
+    stats: { value: string; label: string }[];
+    features: {
+      title: string;
+      items: { title: string; description: string }[];
+    };
+    howItWorks: {
+      title: string;
+      steps: { title: string; description: string }[];
+    };
+    useCases: {
+      title: string;
+      subtitle: string;
+      items: { title: string; description: string }[];
+    };
+    faq: {
+      title: string;
+      items: { question: string; answer: string }[];
+    };
+    cta: {
+      title: string;
+      subtitle: string;
+      button: string;
+    };
+  };
+  nav: {
+    calculator: string;
+    countries: string;
+    about: string;
+  };
   calculator: {
     title: string;
     subtitle: string;

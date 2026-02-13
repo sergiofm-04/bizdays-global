@@ -14,8 +14,6 @@ import {
 } from "@/lib/countries";
 import { getHolidaysForYear } from "@/lib/business-days";
 import { CalculatorForm } from "@/components/calculator/calculator-form";
-import { AdBanner } from "@/components/ads/ad-banner";
-import { AffiliateBanner } from "@/components/ads/affiliate-banner";
 import type { Locale } from "@/types";
 
 interface CountryPageProps {
@@ -66,9 +64,6 @@ export default async function CountryCalculatorPage({
 
   return (
     <div className="max-w-2xl mx-auto px-4 sm:px-6 py-8 space-y-8">
-      {/* Top Ad Banner */}
-      <AdBanner slot="country-top" format="horizontal" />
-
       {/* Country Context Header */}
       <div className="text-center space-y-2">
         <h1 className="text-2xl font-bold text-grey-900">
@@ -88,14 +83,6 @@ export default async function CountryCalculatorPage({
         countries={countries}
         dict={dict.calculator}
         defaultCountryCode={countryData.code}
-      />
-
-      {/* Affiliate Banner */}
-      <AffiliateBanner
-        productName="ClickUp"
-        href="https://clickup.com"
-        ctaText={locale === "es" ? "Pruébalo gratis →" : "Try it free →"}
-        disclaimer={dict.common.affiliateDisclaimer}
       />
 
       {/* Holidays Table for SEO content */}
@@ -131,8 +118,6 @@ export default async function CountryCalculatorPage({
         </section>
       )}
 
-      {/* Bottom Ad Banner */}
-      <AdBanner slot="country-bottom" format="horizontal" />
     </div>
   );
 }

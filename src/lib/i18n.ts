@@ -18,6 +18,147 @@ const dictionaries: Record<Locale, Dictionary> = {
       descriptionTemplate:
         "Calculate working days in {country} excluding weekends and {country} public holidays. Free online tool for delivery date planning.",
     },
+    home: {
+      hero: {
+        title: "Calculate Business Days",
+        highlight: "Across 170+ Countries",
+        subtitle:
+          "The free, instant tool used by logistics, HR, finance and legal teams worldwide to calculate delivery dates, exclude public holidays, and plan international deadlines with confidence.",
+      },
+      stats: [
+        { value: "170+", label: "Countries" },
+        { value: "10k+", label: "Holidays tracked" },
+        { value: "100%", label: "Free forever" },
+        { value: "<50ms", label: "Calculation speed" },
+      ],
+      features: {
+        title: "Why teams choose BizDays Global",
+        items: [
+          {
+            title: "Accurate holiday data",
+            description:
+              "Official public holiday calendars sourced from government databases and updated annually for every country we support.",
+          },
+          {
+            title: "Instant calculations",
+            description:
+              "Results appear in milliseconds. No server round-trips — everything runs in your browser for maximum speed and privacy.",
+          },
+          {
+            title: "Weekend customization",
+            description:
+              "Include or exclude Saturdays as working days. Perfect for regions where Saturday is a business day.",
+          },
+          {
+            title: "Bidirectional counting",
+            description:
+              "Count forward to find a delivery date, or count backward to find a shipping deadline. Negative days supported.",
+          },
+          {
+            title: "No signup required",
+            description:
+              "Open the page, pick your country, and get your answer. No accounts, no subscriptions, no data collection.",
+          },
+          {
+            title: "SEO-friendly country pages",
+            description:
+              "Dedicated pages for every country with full holiday tables — perfect for bookmarking and sharing with colleagues.",
+          },
+        ],
+      },
+      howItWorks: {
+        title: "How it works",
+        steps: [
+          {
+            title: "Select your country",
+            description:
+              "Choose from 170+ countries. We load the official public holiday calendar for the current year.",
+          },
+          {
+            title: "Set your parameters",
+            description:
+              "Pick a start date, enter the number of business days to add (or subtract), and choose whether Saturdays count.",
+          },
+          {
+            title: "Get your result",
+            description:
+              "Instantly see the end date, a breakdown of skipped weekends and holidays, and which specific holidays were excluded.",
+          },
+        ],
+      },
+      useCases: {
+        title: "Built for professionals",
+        subtitle:
+          "Teams across industries rely on BizDays Global for deadline accuracy.",
+        items: [
+          {
+            title: "International logistics",
+            description:
+              "Calculate precise delivery windows for cross-border shipments accounting for local holidays at origin and destination.",
+          },
+          {
+            title: "Human resources",
+            description:
+              "Compute notice periods, probation end dates, and payroll deadlines that comply with local labor regulations.",
+          },
+          {
+            title: "Finance & legal",
+            description:
+              "Determine settlement dates, contract deadlines, and regulatory filing windows that exclude non-business days.",
+          },
+          {
+            title: "Project management",
+            description:
+              "Plan international sprint timelines and milestone dates that account for team members in different countries.",
+          },
+        ],
+      },
+      faq: {
+        title: "Frequently asked questions",
+        items: [
+          {
+            question: "What is a business day?",
+            answer:
+              "A business day (also called a working day) is any day that is not a weekend or a public holiday. Most countries consider Monday through Friday as business days, though this varies by region.",
+          },
+          {
+            question: "How accurate is the holiday data?",
+            answer:
+              "We source holiday data from the open-source date-holidays library, which aggregates government-published holiday calendars. Data is updated regularly but we recommend verifying critical dates with local authorities.",
+          },
+          {
+            question: "Can I count business days backward?",
+            answer:
+              "Yes. Enter a negative number of business days to count backward from your start date. This is useful for finding shipping deadlines when you know the required delivery date.",
+          },
+          {
+            question: "Does this tool account for regional holidays?",
+            answer:
+              "Our tool focuses on national public holidays. Some countries have regional holidays that vary by state or province. For regional accuracy, always cross-reference with local government sources.",
+          },
+          {
+            question: "Is this calculator free to use?",
+            answer:
+              "Yes, BizDays Global is completely free and always will be. No signup, no limits, no hidden features behind a paywall.",
+          },
+          {
+            question: "Why do I need a business days calculator?",
+            answer:
+              "Manual counting is error-prone, especially across borders. Missing a single holiday can delay shipments, breach contract deadlines, or cause payroll miscalculations. Automating this eliminates human error.",
+          },
+        ],
+      },
+      cta: {
+        title: "Ready to calculate?",
+        subtitle: "Scroll up and try the calculator — it takes 5 seconds.",
+        button: "Try the calculator",
+      },
+    },
+    nav: {
+      calculator: "Calculator",
+      countries: "Countries",
+      about: "About",
+    },
     calculator: {
       title: "Business Days Calculator",
       subtitle:
@@ -279,6 +420,147 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Calculadora de Días Laborables en {country} | BizDays Global",
       descriptionTemplate:
         "Calcula días hábiles en {country} excluyendo fines de semana y festivos de {country}. Herramienta gratuita para planificar entregas.",
+    },
+    home: {
+      hero: {
+        title: "Calcula Días Laborables",
+        highlight: "En Más de 170 Países",
+        subtitle:
+          "La herramienta gratuita e instantánea que usan equipos de logística, RRHH, finanzas y legal en todo el mundo para calcular fechas de entrega, excluir festivos y planificar plazos internacionales con confianza.",
+      },
+      stats: [
+        { value: "170+", label: "Países" },
+        { value: "10k+", label: "Festivos registrados" },
+        { value: "100%", label: "Gratis siempre" },
+        { value: "<50ms", label: "Velocidad de cálculo" },
+      ],
+      features: {
+        title: "Por qué los equipos eligen BizDays Global",
+        items: [
+          {
+            title: "Datos de festivos precisos",
+            description:
+              "Calendarios oficiales de festivos públicos obtenidos de bases de datos gubernamentales y actualizados anualmente para cada país.",
+          },
+          {
+            title: "Cálculos instantáneos",
+            description:
+              "Los resultados aparecen en milisegundos. Sin peticiones al servidor — todo se ejecuta en tu navegador para máxima velocidad y privacidad.",
+          },
+          {
+            title: "Personalización de fines de semana",
+            description:
+              "Incluye o excluye sábados como días laborables. Perfecto para regiones donde el sábado es día hábil.",
+          },
+          {
+            title: "Conteo bidireccional",
+            description:
+              "Cuenta hacia adelante para encontrar una fecha de entrega, o hacia atrás para encontrar un plazo de envío. Se admiten días negativos.",
+          },
+          {
+            title: "Sin registro necesario",
+            description:
+              "Abre la página, selecciona tu país y obtén tu respuesta. Sin cuentas, sin suscripciones, sin recopilación de datos.",
+          },
+          {
+            title: "Páginas por país optimizadas para SEO",
+            description:
+              "Páginas dedicadas para cada país con tablas completas de festivos — perfectas para guardar en favoritos y compartir con colegas.",
+          },
+        ],
+      },
+      howItWorks: {
+        title: "Cómo funciona",
+        steps: [
+          {
+            title: "Selecciona tu país",
+            description:
+              "Elige entre más de 170 países. Cargamos el calendario oficial de festivos públicos del año actual.",
+          },
+          {
+            title: "Configura tus parámetros",
+            description:
+              "Elige una fecha de inicio, introduce el número de días laborables a sumar (o restar), y decide si los sábados cuentan.",
+          },
+          {
+            title: "Obtén tu resultado",
+            description:
+              "Ve instantáneamente la fecha final, un desglose de fines de semana y festivos omitidos, y qué festivos específicos se excluyeron.",
+          },
+        ],
+      },
+      useCases: {
+        title: "Diseñado para profesionales",
+        subtitle:
+          "Equipos de múltiples industrias confían en BizDays Global para la precisión de sus plazos.",
+        items: [
+          {
+            title: "Logística internacional",
+            description:
+              "Calcula ventanas de entrega precisas para envíos transfronterizos teniendo en cuenta festivos locales en origen y destino.",
+          },
+          {
+            title: "Recursos humanos",
+            description:
+              "Calcula períodos de preaviso, fechas de fin de prueba y plazos de nómina según la regulación laboral local.",
+          },
+          {
+            title: "Finanzas y legal",
+            description:
+              "Determina fechas de liquidación, plazos contractuales y ventanas de cumplimiento regulatorio que excluyen días no laborables.",
+          },
+          {
+            title: "Gestión de proyectos",
+            description:
+              "Planifica cronogramas de sprints internacionales y fechas de hitos teniendo en cuenta miembros del equipo en distintos países.",
+          },
+        ],
+      },
+      faq: {
+        title: "Preguntas frecuentes",
+        items: [
+          {
+            question: "¿Qué es un día laborable?",
+            answer:
+              "Un día laborable (también llamado día hábil) es cualquier día que no sea fin de semana ni festivo público. La mayoría de países consideran de lunes a viernes como días laborables, aunque varía según la región.",
+          },
+          {
+            question: "¿Cómo de precisos son los datos de festivos?",
+            answer:
+              "Obtenemos los datos de festivos de la librería open-source date-holidays, que agrega calendarios de festivos publicados por gobiernos. Los datos se actualizan regularmente pero recomendamos verificar fechas críticas con las autoridades locales.",
+          },
+          {
+            question: "¿Puedo contar días laborables hacia atrás?",
+            answer:
+              "Sí. Introduce un número negativo de días laborables para contar hacia atrás desde tu fecha de inicio. Útil para encontrar plazos de envío cuando conoces la fecha de entrega requerida.",
+          },
+          {
+            question: "¿Esta herramienta tiene en cuenta los festivos regionales?",
+            answer:
+              "Nuestra herramienta se centra en festivos públicos nacionales. Algunos países tienen festivos regionales que varían por comunidad autónoma o provincia. Para mayor precisión, consulta las fuentes oficiales locales.",
+          },
+          {
+            question: "¿Es gratuita esta calculadora?",
+            answer:
+              "Sí, BizDays Global es completamente gratuita y siempre lo será. Sin registro, sin límites, sin funciones ocultas de pago.",
+          },
+          {
+            question: "¿Por qué necesito una calculadora de días laborables?",
+            answer:
+              "El conteo manual es propenso a errores, especialmente entre países. Perder un solo festivo puede retrasar envíos, incumplir plazos contractuales o causar errores en nóminas. Automatizarlo elimina el error humano.",
+          },
+        ],
+      },
+      cta: {
+        title: "¿Listo para calcular?",
+        subtitle: "Sube y prueba la calculadora — solo toma 5 segundos.",
+        button: "Probar la calculadora",
+      },
+    },
+    nav: {
+      calculator: "Calculadora",
+      countries: "Países",
+      about: "Acerca de",
     },
     calculator: {
       title: "Calculadora de Días Laborables",

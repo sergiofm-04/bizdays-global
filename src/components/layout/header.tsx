@@ -5,7 +5,8 @@
 
 "use client";
 
-import { CalendarDays, Globe, ChevronDown, Menu, X } from "lucide-react";
+import { Globe, ChevronDown, Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
@@ -77,9 +78,13 @@ function Header({ lang, nav }: HeaderProps) {
             href={`/${lang}`}
             className="group flex items-center gap-2.5 transition-opacity hover:opacity-80"
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary-500 to-primary-700 shadow-sm shadow-primary-500/20 transition-shadow group-hover:shadow-md group-hover:shadow-primary-500/30">
-              <CalendarDays className="h-4 w-4 text-white" />
-            </div>
+            <Image
+              src="/images/logo/logomark.png"
+              alt="BizDays Global"
+              width={32}
+              height={32}
+              className="h-8 w-8 rounded-lg shadow-sm shadow-primary-500/20 transition-shadow group-hover:shadow-md group-hover:shadow-primary-500/30"
+            />
             <span className="text-[17px] font-bold tracking-tight text-grey-900">
               BizDays<span className="text-primary-600">Global</span>
             </span>

@@ -23,6 +23,7 @@ import {
 import { isValidLocale, getDictionary } from "@/lib/i18n";
 import { getSupportedCountries } from "@/lib/countries";
 import { CalculatorForm } from "@/components/calculator/calculator-form";
+import { HeroGlobe } from "@/components/illustrations/hero-globe";
 import type { Locale } from "@/types";
 
 interface HomePageProps {
@@ -47,54 +48,65 @@ export default async function HomePage({ params }: HomePageProps) {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-primary-50/50 via-white to-white">
-        {/* Subtle grid pattern */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, #1e40af 1px, transparent 1px), linear-gradient(to bottom, #1e40af 1px, transparent 1px)",
-            backgroundSize: "64px 64px",
-          }}
-        />
+      <section className="relative overflow-hidden bg-gradient-to-b from-primary-50/60 via-white to-white">
+        {/* Dot-grid world-map pattern */}
+        <svg
+          className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.04]"
+          aria-hidden="true"
+        >
+          <defs>
+            <pattern id="dot-grid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1" fill="#1e40af" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#dot-grid)" />
+        </svg>
+
+        {/* Gradient blobs */}
         <div className="pointer-events-none absolute -top-24 right-0 h-[400px] w-[400px] rounded-full bg-primary-100/40 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 -left-24 h-[300px] w-[300px] rounded-full bg-primary-200/30 blur-3xl" />
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8 sm:pt-24 sm:pb-12">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-grey-900 leading-[1.1]">
-              {h.hero.title}{" "}
-              <span className="bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">
-                {h.hero.highlight}
-              </span>
-            </h1>
-            <p className="mt-6 text-lg sm:text-xl text-grey-500 leading-relaxed max-w-2xl mx-auto">
-              {h.hero.subtitle}
-            </p>
+          <div className="grid items-center gap-8 lg:grid-cols-[1fr_auto]">
+            {/* Left column — text */}
+            <div className="text-center lg:text-left max-w-2xl mx-auto lg:mx-0">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-grey-900 leading-[1.1]">
+                {h.hero.title}{" "}
+                <span className="bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">
+                  {h.hero.highlight}
+                </span>
+              </h1>
+              <p className="mt-6 text-lg sm:text-xl text-grey-500 leading-relaxed">
+                {h.hero.subtitle}
+              </p>
 
-            {/* Stats bar */}
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-6 sm:gap-10">
-              {h.stats.map((stat, i) => (
-                <div key={i} className="text-center">
-                  <div className="text-2xl sm:text-3xl font-extrabold text-grey-900">
-                    {stat.value}
+              {/* Stats bar */}
+              <div className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-10">
+                {h.stats.map((stat, i) => (
+                  <div key={i} className="text-center">
+                    <div className="text-2xl sm:text-3xl font-extrabold text-grey-900">
+                      {stat.value}
+                    </div>
+                    <div className="text-xs sm:text-sm text-grey-400 font-medium mt-0.5">
+                      {stat.label}
+                    </div>
                   </div>
-                  <div className="text-xs sm:text-sm text-grey-400 font-medium mt-0.5">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
+
+              {/* Scroll indicator */}
+              <div className="mt-10 flex justify-center lg:justify-start">
+                <a
+                  href="#calculator"
+                  className="inline-flex flex-col items-center gap-1 text-grey-400 hover:text-primary-500 transition-colors"
+                >
+                  <ChevronDown className="h-5 w-5 animate-bounce" />
+                </a>
+              </div>
             </div>
 
-            {/* Scroll indicator */}
-            <div className="mt-10 flex justify-center">
-              <a
-                href="#calculator"
-                className="inline-flex flex-col items-center gap-1 text-grey-400 hover:text-primary-500 transition-colors"
-              >
-                <ChevronDown className="h-5 w-5 animate-bounce" />
-              </a>
-            </div>
+            {/* Right column — globe illustration (desktop only) */}
+            <HeroGlobe className="hidden lg:block w-[340px] h-[340px] xl:w-[400px] xl:h-[400px] flex-shrink-0" />
           </div>
         </div>
       </section>
@@ -242,6 +254,19 @@ export default async function HomePage({ params }: HomePageProps) {
       <section className="py-16 sm:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-600 to-primary-800 px-8 py-14 sm:px-14 sm:py-16 text-center">
+            {/* Geometric hex pattern */}
+            <svg
+              className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.06]"
+              aria-hidden="true"
+            >
+              <defs>
+                <pattern id="hex-pattern" x="0" y="0" width="56" height="48" patternUnits="userSpaceOnUse">
+                  <path d="M28 0 L56 16 L56 48 L28 48 L0 32 L0 0 Z" fill="none" stroke="white" strokeWidth="0.5" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#hex-pattern)" />
+            </svg>
+
             {/* Decorative circles */}
             <div className="pointer-events-none absolute -top-12 -right-12 h-48 w-48 rounded-full bg-white/5" />
             <div className="pointer-events-none absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-white/5" />

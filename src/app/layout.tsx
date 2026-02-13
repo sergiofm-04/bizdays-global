@@ -34,6 +34,12 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true },
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -43,12 +49,21 @@ export const metadata: Metadata = {
     title: "BizDays Global — Business Days & Holiday Calculator",
     description:
       "Calculate delivery dates, business days and public holidays for over 100 countries.",
+    images: [
+      {
+        url: `${SITE_URL}/images/logo/logo-512.png`,
+        width: 512,
+        height: 512,
+        alt: "BizDays Global",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "BizDays Global — Business Days Calculator",
     description:
       "The ultimate B2B tool for calculating business days and holidays worldwide.",
+    images: [`${SITE_URL}/images/logo/logo-512.png`],
   },
   alternates: {
     canonical: SITE_URL,
@@ -89,7 +104,7 @@ export default function RootLayout({
                 "@type": "Organization",
                 name: "BizDays Global",
                 url: SITE_URL,
-                logo: `${SITE_URL}/icon.svg`,
+                logo: `${SITE_URL}/images/logo/logo-512.png`,
                 description:
                   "International business days and public holiday calculator for B2B teams.",
               },

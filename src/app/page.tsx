@@ -89,8 +89,9 @@ export default function ComingSoonPage() {
         {/* ── Hero ── */}
         <header className="mt-8 flex flex-col items-center text-center sm:mt-16">
           {/* Animated logo mark */}
-          <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 shadow-lg shadow-primary-500/25 animate-[float_3s_ease-in-out_infinite]">
-            <Globe className="h-10 w-10 text-white" />
+          <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-2xl shadow-lg shadow-primary-500/25 animate-[float_3s_ease-in-out_infinite] overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/logo/logomark.png" alt="BizDays Global" width={80} height={80} className="h-full w-full object-cover" />
           </div>
 
           <h1 className="text-4xl font-extrabold tracking-tight text-grey-900 sm:text-5xl lg:text-6xl">

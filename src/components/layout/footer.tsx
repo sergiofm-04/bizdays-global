@@ -3,7 +3,8 @@
 // Professional multi-column layout
 // ============================================
 
-import { CalendarDays, Globe } from "lucide-react";
+import { Globe } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import type { Dictionary, Locale } from "@/types";
 
@@ -36,9 +37,13 @@ function Footer({ dict, lang }: FooterProps) {
           {/* Brand column */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary-500 to-primary-700">
-                <CalendarDays className="h-4 w-4 text-white" />
-              </div>
+              <Image
+                src="/images/logo/logomark.png"
+                alt="BizDays Global"
+                width={32}
+                height={32}
+                className="h-8 w-8 rounded-lg"
+              />
               <span className="text-sm font-bold text-grey-900 tracking-tight">
                 BizDays Global
               </span>

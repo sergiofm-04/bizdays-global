@@ -11,6 +11,7 @@ import { isValidLocale, getDictionary, locales } from "@/lib/i18n";
 import { generateBaseMetadata, generateJsonLd } from "@/lib/seo";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { CookieBanner } from "@/components/consent/cookie-banner";
 import type { Locale } from "@/types";
 
 const inter = Inter({
@@ -58,6 +59,7 @@ export default async function LangLayout({ children, params }: LangLayoutProps) 
       <Header lang={locale} nav={dict.nav} />
       <main className="flex-1">{children}</main>
       <Footer dict={dict.common.footer} lang={locale} />
+      <CookieBanner lang={locale} dict={dict.cookieConsent} />
     </>
   );
 }

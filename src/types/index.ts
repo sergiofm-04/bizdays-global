@@ -83,6 +83,21 @@ export interface Dictionary {
     countries: string;
     about: string;
   };
+  cookieConsent: {
+    title: string;
+    description: string;
+    acceptAll: string;
+    rejectAll: string;
+    customize: string;
+    save: string;
+    necessary: string;
+    necessaryDesc: string;
+    analytics: string;
+    analyticsDesc: string;
+    advertising: string;
+    advertisingDesc: string;
+    moreInfo: string;
+  };
   calculator: {
     title: string;
     subtitle: string;

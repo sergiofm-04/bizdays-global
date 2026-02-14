@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { getDefaultConsentScript } from "@/lib/consent";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin", "latin-ext"] });
@@ -37,6 +38,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/icon.svg", type: "image/svg+xml" },
     ],
     apple: "/apple-touch-icon.png",
   },
@@ -82,6 +84,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google Consent Mode v2 — MUST be first, before any Google tags */}
+        <script
+          dangerouslySetInnerHTML={{ __html: getDefaultConsentScript() }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

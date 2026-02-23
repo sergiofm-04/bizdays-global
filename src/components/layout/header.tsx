@@ -5,7 +5,7 @@
 
 "use client";
 
-import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
+import { Globe, ChevronDown, Menu, X, ArrowRight, Check } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -17,10 +17,10 @@ interface HeaderProps {
   nav: Dictionary["nav"];
 }
 
-const LANG_META = {
-  en: { flag: "🇬🇧", short: "EN", label: "English" },
-  es: { flag: "🇪🇸", short: "ES", label: "Español" },
-} as const;
+const LANG_LABELS: Record<Locale, string> = {
+  en: "English",
+  es: "Español",
+};
 
 function Header({ lang, nav }: HeaderProps) {
   const pathname = usePathname();
@@ -64,8 +64,6 @@ function Header({ lang, nav }: HeaderProps) {
     { href: `/${lang}#faq`, label: nav.faq },
   ];
 
-  const isActive = (href: string) => pathname === `/${lang}` && href.includes("#calculator");
-
   return (
     <header
       className={`
@@ -96,20 +94,13 @@ function Header({ lang, nav }: HeaderProps) {
             </span>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
+          {/* Desktop Nav — pill container */}
+          <nav className="hidden md:flex items-center bg-grey-50 rounded-full px-1 py-1 border border-grey-100">
+            {navLinks.map((link, i) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`
-                  relative px-3.5 py-2 text-sm font-medium rounded-lg transition-all duration-200
-                  ${
-                    isActive(link.href)
-                      ? "text-primary-700 bg-primary-50"
-                      : "text-grey-500 hover:text-grey-900 hover:bg-grey-50"
-                  }
-                `}
+                className="relative px-4 py-1.5 text-sm font-medium text-grey-600 rounded-full transition-all duration-200 hover:text-grey-900 hover:bg-white hover:shadow-sm"
               >
                 {link.label}
               </Link>
@@ -123,21 +114,21 @@ function Header({ lang, nav }: HeaderProps) {
               <button
                 onClick={() => setLangOpen(!langOpen)}
                 className={`
-                  inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-sm font-medium
-                  transition-all duration-200 cursor-pointer border
+                  inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium
+                  transition-all duration-200 cursor-pointer
                   ${
                     langOpen
-                      ? "text-primary-700 bg-primary-50 border-primary-200"
-                      : "text-grey-600 hover:text-grey-900 bg-grey-50 hover:bg-grey-100 border-grey-200"
+                      ? "text-primary-700 bg-primary-50"
+                      : "text-grey-600 hover:text-grey-900 hover:bg-grey-50"
                   }
                 `}
                 aria-expanded={langOpen}
                 aria-haspopup="true"
               >
-                <span className="text-base leading-none">{LANG_META[lang].flag}</span>
-                <span className="hidden sm:inline text-xs font-semibold">{LANG_META[lang].short}</span>
+                <Globe className="h-4 w-4" />
+                <span>{LANG_LABELS[lang]}</span>
                 <ChevronDown
-                  className={`h-3 w-3 transition-transform duration-200 ${
+                  className={`h-3.5 w-3.5 transition-transform duration-200 ${
                     langOpen ? "rotate-180" : ""
                   }`}
                 />
@@ -145,21 +136,23 @@ function Header({ lang, nav }: HeaderProps) {
 
               {/* Dropdown */}
               {langOpen && (
-                <div className="absolute right-0 mt-2 w-44 rounded-xl border border-grey-100 bg-white p-1.5 shadow-lg shadow-grey-900/5 animate-in fade-in slide-in-from-top-1 duration-150">
+                <div className="absolute right-0 mt-2 w-48 rounded-xl border border-grey-100 bg-white p-1.5 shadow-lg shadow-grey-900/8">
                   {(["en", "es"] as const).map((l) => (
                     <Link
                       key={l}
                       href={getLocalizedPath(l)}
                       onClick={() => setLangOpen(false)}
                       className={`
-                        flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors
+                        flex items-center justify-between px-3.5 py-2.5 rounded-lg text-sm transition-colors
                         ${lang === l ? "bg-primary-50 text-primary-700 font-medium" : "text-grey-600 hover:bg-grey-50 hover:text-grey-900"}
                       `}
                     >
-                      <span className="text-base">{LANG_META[l].flag}</span>
-                      {LANG_META[l].label}
+                      <div className="flex items-center gap-2.5">
+                        <Globe className="h-4 w-4 opacity-50" />
+                        {LANG_LABELS[l]}
+                      </div>
                       {lang === l && (
-                        <span className="ml-auto h-1.5 w-1.5 rounded-full bg-primary-500" />
+                        <Check className="h-4 w-4 text-primary-500" />
                       )}
                     </Link>
                   ))}
@@ -200,14 +193,7 @@ function Header({ lang, nav }: HeaderProps) {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`
-                    px-3 py-2.5 rounded-lg text-sm font-medium transition-colors
-                    ${
-                      isActive(link.href)
-                        ? "text-primary-700 bg-primary-50"
-                        : "text-grey-600 hover:bg-grey-50 hover:text-grey-900"
-                    }
-                  `}
+                  className="px-3 py-2.5 rounded-lg text-sm font-medium text-grey-600 hover:bg-grey-50 hover:text-grey-900 transition-colors"
                 >
                   {link.label}
                 </Link>

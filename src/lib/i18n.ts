@@ -157,6 +157,8 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     nav: {
       calculator: "Calculator",
+      howItWorks: "How It Works",
+      faq: "FAQ",
       countries: "Countries",
       about: "About",
       startCalculating: "Start Calculating",
@@ -583,6 +585,8 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     nav: {
       calculator: "Calculadora",
+      howItWorks: "Cómo funciona",
+      faq: "FAQ",
       countries: "Países",
       about: "Acerca de",
       startCalculating: "Empieza a calcular",

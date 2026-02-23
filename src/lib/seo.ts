@@ -12,6 +12,12 @@ import { getDictionary } from "@/lib/i18n";
  */
 export function generateBaseMetadata(locale: Locale): Metadata {
   const dict = getDictionary(locale);
+  const SITE_URL =
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com";
+  const ogImage =
+    locale === "es"
+      ? `${SITE_URL}/images/og/og-es.png`
+      : `${SITE_URL}/images/og/og-default.png`;
 
   return {
     title: {
@@ -39,11 +45,20 @@ export function generateBaseMetadata(locale: Locale): Metadata {
       siteName: "BizDays Global",
       title: dict.meta.title,
       description: dict.meta.description,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: dict.meta.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: dict.meta.title,
       description: dict.meta.description,
+      images: [ogImage],
     },
     robots: {
       index: true,

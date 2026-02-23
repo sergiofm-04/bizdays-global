@@ -52,10 +52,10 @@ export const metadata: Metadata = {
       "Calculate delivery dates, business days and public holidays for over 100 countries.",
     images: [
       {
-        url: `${SITE_URL}/images/logo/logo-512.png`,
-        width: 512,
-        height: 512,
-        alt: "BizDays Global",
+        url: `${SITE_URL}/images/og/og-default.png`,
+        width: 1200,
+        height: 630,
+        alt: "BizDays Global — Business Days & Holiday Calculator",
       },
     ],
   },
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     title: "BizDays Global — Business Days Calculator",
     description:
       "The ultimate B2B tool for calculating business days and holidays worldwide.",
-    images: [`${SITE_URL}/images/logo/logo-512.png`],
+    images: [`${SITE_URL}/images/og/og-default.png`],
   },
   alternates: {
     canonical: SITE_URL,

@@ -5,7 +5,7 @@
 
 "use client";
 
-import { Globe, ChevronDown, Menu, X, ArrowRight } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -16,6 +16,11 @@ interface HeaderProps {
   lang: Locale;
   nav: Dictionary["nav"];
 }
+
+const LANG_META = {
+  en: { flag: "🇬🇧", short: "EN", label: "English" },
+  es: { flag: "🇪🇸", short: "ES", label: "Español" },
+} as const;
 
 function Header({ lang, nav }: HeaderProps) {
   const pathname = usePathname();
@@ -55,6 +60,8 @@ function Header({ lang, nav }: HeaderProps) {
 
   const navLinks = [
     { href: `/${lang}#calculator`, label: nav.calculator },
+    { href: `/${lang}#how-it-works`, label: nav.howItWorks },
+    { href: `/${lang}#faq`, label: nav.faq },
   ];
 
   const isActive = (href: string) => pathname === `/${lang}` && href.includes("#calculator");
@@ -116,22 +123,19 @@ function Header({ lang, nav }: HeaderProps) {
               <button
                 onClick={() => setLangOpen(!langOpen)}
                 className={`
-                  inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium
-                  transition-all duration-200 cursor-pointer
+                  inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-sm font-medium
+                  transition-all duration-200 cursor-pointer border
                   ${
                     langOpen
-                      ? "text-primary-700 bg-primary-50"
-                      : "text-grey-500 hover:text-grey-900 hover:bg-grey-50"
+                      ? "text-primary-700 bg-primary-50 border-primary-200"
+                      : "text-grey-600 hover:text-grey-900 bg-grey-50 hover:bg-grey-100 border-grey-200"
                   }
                 `}
                 aria-expanded={langOpen}
                 aria-haspopup="true"
               >
-                <Globe className="h-4 w-4" />
-                <span className="hidden sm:inline">
-                  {lang === "en" ? "English" : "Español"}
-                </span>
-                <span className="sm:hidden">{lang.toUpperCase()}</span>
+                <span className="text-base leading-none">{LANG_META[lang].flag}</span>
+                <span className="hidden sm:inline text-xs font-semibold">{LANG_META[lang].short}</span>
                 <ChevronDown
                   className={`h-3 w-3 transition-transform duration-200 ${
                     langOpen ? "rotate-180" : ""
@@ -141,35 +145,24 @@ function Header({ lang, nav }: HeaderProps) {
 
               {/* Dropdown */}
               {langOpen && (
-                <div className="absolute right-0 mt-2 w-44 rounded-xl border border-grey-100 bg-white p-1.5 shadow-lg shadow-grey-900/5">
-                  <Link
-                    href={getLocalizedPath("en")}
-                    onClick={() => setLangOpen(false)}
-                    className={`
-                      flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors
-                      ${lang === "en" ? "bg-primary-50 text-primary-700 font-medium" : "text-grey-600 hover:bg-grey-50 hover:text-grey-900"}
-                    `}
-                  >
-                    <span className="text-base">🇬🇧</span>
-                    English
-                    {lang === "en" && (
-                      <span className="ml-auto h-1.5 w-1.5 rounded-full bg-primary-500" />
-                    )}
-                  </Link>
-                  <Link
-                    href={getLocalizedPath("es")}
-                    onClick={() => setLangOpen(false)}
-                    className={`
-                      flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors
-                      ${lang === "es" ? "bg-primary-50 text-primary-700 font-medium" : "text-grey-600 hover:bg-grey-50 hover:text-grey-900"}
-                    `}
-                  >
-                    <span className="text-base">🇪🇸</span>
-                    Español
-                    {lang === "es" && (
-                      <span className="ml-auto h-1.5 w-1.5 rounded-full bg-primary-500" />
-                    )}
-                  </Link>
+                <div className="absolute right-0 mt-2 w-44 rounded-xl border border-grey-100 bg-white p-1.5 shadow-lg shadow-grey-900/5 animate-in fade-in slide-in-from-top-1 duration-150">
+                  {(["en", "es"] as const).map((l) => (
+                    <Link
+                      key={l}
+                      href={getLocalizedPath(l)}
+                      onClick={() => setLangOpen(false)}
+                      className={`
+                        flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors
+                        ${lang === l ? "bg-primary-50 text-primary-700 font-medium" : "text-grey-600 hover:bg-grey-50 hover:text-grey-900"}
+                      `}
+                    >
+                      <span className="text-base">{LANG_META[l].flag}</span>
+                      {LANG_META[l].label}
+                      {lang === l && (
+                        <span className="ml-auto h-1.5 w-1.5 rounded-full bg-primary-500" />
+                      )}
+                    </Link>
+                  ))}
                 </div>
               )}
             </div>

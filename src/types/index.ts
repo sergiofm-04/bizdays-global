@@ -81,6 +81,8 @@ export interface Dictionary {
   };
   nav: {
     calculator: string;
+    howItWorks: string;
+    faq: string;
     countries: string;
     about: string;
     startCalculating: string;

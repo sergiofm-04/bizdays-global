@@ -161,7 +161,7 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       {/* ── How It Works ── */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section id="how-it-works" className="scroll-mt-20 py-16 sm:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-grey-900 tracking-tight">
@@ -233,7 +233,7 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section id="faq" className="scroll-mt-20 py-16 sm:py-24 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-grey-900 tracking-tight">
@@ -260,42 +260,45 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       {/* ── Bottom CTA ── */}
-      <section className="py-16 sm:py-20 bg-gradient-to-b from-white via-primary-950 to-primary-950">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 px-8 py-14 sm:px-14 sm:py-16 text-center">
-            {/* Geometric hex pattern */}
-            <svg
-              className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.06]"
-              aria-hidden="true"
-            >
-              <defs>
-                <pattern id="hex-pattern" x="0" y="0" width="56" height="48" patternUnits="userSpaceOnUse">
-                  <path d="M28 0 L56 16 L56 48 L28 48 L0 32 L0 0 Z" fill="none" stroke="white" strokeWidth="0.5" />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#hex-pattern)" />
-            </svg>
+      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 pt-0 pb-16 sm:pb-20">
+        {/* Wave divider — seamless transition from white FAQ above */}
+        <div className="w-full overflow-hidden leading-[0]">
+          <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto block" preserveAspectRatio="none">
+            <path d="M0 0h1440v20C1320 60 1200 80 1080 70 960 60 840 30 720 25 600 20 480 45 360 55 240 65 120 50 0 40V0Z" fill="white"/>
+          </svg>
+        </div>
 
-            {/* Decorative circles */}
-            <div className="pointer-events-none absolute -top-12 -right-12 h-48 w-48 rounded-full bg-white/5" />
-            <div className="pointer-events-none absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-white/5" />
+        {/* Dot-grid decoration */}
+        <svg
+          className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.05]"
+          aria-hidden="true"
+        >
+          <defs>
+            <pattern id="cta-dots" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1" fill="white" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#cta-dots)" />
+        </svg>
 
-            <div className="relative">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white">
-                {h.cta.title}
-              </h2>
-              <p className="mt-3 text-primary-100 text-lg">
-                {h.cta.subtitle}
-              </p>
-              <a
-                href="#calculator"
-                className="mt-8 inline-flex items-center gap-2 rounded-xl bg-white px-7 py-3.5 text-sm font-semibold text-primary-700 shadow-lg shadow-primary-900/20 transition-all hover:shadow-xl hover:-translate-y-0.5"
-              >
-                {h.cta.button}
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
-          </div>
+        {/* Decorative glows */}
+        <div className="pointer-events-none absolute top-20 right-0 h-[300px] w-[300px] rounded-full bg-primary-400/10 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 left-0 h-[250px] w-[250px] rounded-full bg-primary-500/10 blur-3xl" />
+
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-8 sm:pt-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            {h.cta.title}
+          </h2>
+          <p className="mt-4 text-lg text-primary-100/80 max-w-xl mx-auto">
+            {h.cta.subtitle}
+          </p>
+          <a
+            href="#calculator"
+            className="mt-8 inline-flex items-center gap-2.5 rounded-xl bg-white px-8 py-4 text-base font-semibold text-primary-700 shadow-xl shadow-primary-900/30 transition-all duration-200 hover:shadow-2xl hover:-translate-y-0.5 hover:bg-primary-50"
+          >
+            {h.cta.button}
+            <ArrowRight className="h-5 w-5" />
+          </a>
         </div>
       </section>
     </>

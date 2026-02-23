@@ -16,12 +16,13 @@ import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"
 import { CountrySelector } from "@/components/calculator/country-selector";
 import { CalculatorResultDisplay } from "@/components/calculator/calculator-result";
 
-import { calculateEndDate } from "@/lib/business-days";
-import type { Country, CalculatorResult, Dictionary } from "@/types";
+import { calculateEndDate, buildSummary } from "@/lib/business-days";
+import type { Country, CalculatorResult, Dictionary, Locale } from "@/types";
 
 interface CalculatorFormProps {
   countries: Country[];
   dict: Dictionary["calculator"];
+  lang: Locale;
   /** Pre-selected country code (for programmatic SEO pages) */
   defaultCountryCode?: string;
 }
@@ -29,6 +30,7 @@ interface CalculatorFormProps {
 function CalculatorForm({
   countries,
   dict,
+  lang,
   defaultCountryCode,
 }: CalculatorFormProps) {
   const today = format(new Date(), "yyyy-MM-dd");
@@ -54,7 +56,13 @@ function CalculatorForm({
           countryCode,
           includeSaturdays,
         });
-        setResult(calcResult);
+        // Rebuild summary with localized strings
+        const localizedSummary = buildSummary(
+          calcResult.skippedWeekends,
+          calcResult.skippedHolidays,
+          dict.result
+        );
+        setResult({ ...calcResult, summary: localizedSummary });
       } catch (error) {
         console.error("Calculation error:", error);
       } finally {
@@ -125,7 +133,7 @@ function CalculatorForm({
             {isCalculating ? (
               <span className="flex items-center gap-2">
                 <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                Calculating...
+                {dict.calculating}
               </span>
             ) : (
               <>
@@ -139,7 +147,7 @@ function CalculatorForm({
 
       {/* Result Display */}
       {result && (
-        <CalculatorResultDisplay result={result} dict={dict.result} />
+        <CalculatorResultDisplay result={result} dict={dict.result} lang={lang} />
       )}
     </div>
   );

@@ -114,31 +114,49 @@ export function calculateEndDate(input: CalculatorInput): CalculatorResult {
 
 /**
  * Build a human-readable summary of skipped days.
+ * Accepts optional i18n strings for localization.
  */
-function buildSummary(
+interface SummaryStrings {
+  summarySkipped: string;
+  summaryWeekendDays: string;
+  summaryHolidays: string;
+  summaryNone: string;
+  summaryAnd: string;
+}
+
+export function buildSummary(
   skippedWeekends: number,
-  skippedHolidays: SkippedHoliday[]
+  skippedHolidays: SkippedHoliday[],
+  strings?: SummaryStrings
 ): string {
+  const s = strings ?? {
+    summarySkipped: "Skipped",
+    summaryWeekendDays: "weekend day",
+    summaryHolidays: "holiday",
+    summaryNone: "No weekends or holidays were skipped.",
+    summaryAnd: "and",
+  };
+
   const parts: string[] = [];
 
   if (skippedWeekends > 0) {
     parts.push(
-      `${skippedWeekends} weekend day${skippedWeekends !== 1 ? "s" : ""}`
+      `${skippedWeekends} ${s.summaryWeekendDays}${skippedWeekends !== 1 ? "s" : ""}`
     );
   }
 
   if (skippedHolidays.length > 0) {
     const holidayNames = skippedHolidays.map((h) => h.name).join(", ");
     parts.push(
-      `${skippedHolidays.length} holiday${skippedHolidays.length !== 1 ? "s" : ""} (${holidayNames})`
+      `${skippedHolidays.length} ${s.summaryHolidays}${skippedHolidays.length !== 1 ? "s" : ""} (${holidayNames})`
     );
   }
 
   if (parts.length === 0) {
-    return "No weekends or holidays were skipped.";
+    return s.summaryNone;
   }
 
-  return `Skipped ${parts.join(" and ")}.`;
+  return `${s.summarySkipped} ${parts.join(` ${s.summaryAnd} `)}.`;
 }
 
 /**

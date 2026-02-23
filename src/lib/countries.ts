@@ -22,7 +22,8 @@ export function getSupportedCountries(): Country[] {
   cachedCountries = Object.entries(countries)
     .map(([code, name]) => ({
       code: code.toUpperCase(),
-      name: name as string,
+      // Sanitise names: strip leading apostrophes / special chars from date-holidays data
+      name: (name as string).replace(/^['\u2018\u2019\\]+/, ""),
     }))
     .sort((a, b) => a.name.localeCompare(b.name));
 

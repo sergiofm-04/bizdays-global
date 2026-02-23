@@ -4,19 +4,26 @@
 
 import { Calendar, CalendarOff, PartyPopper } from "lucide-react";
 import { format } from "date-fns";
+import { enUS } from "date-fns/locale/en-US";
+import { es } from "date-fns/locale/es";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import type { CalculatorResult } from "@/types";
-import type { Dictionary } from "@/types";
+import type { Dictionary, Locale } from "@/types";
+
+const DATE_LOCALES = { en: enUS, es } as const;
 
 interface CalculatorResultDisplayProps {
   result: CalculatorResult;
   dict: Dictionary["calculator"]["result"];
+  lang: Locale;
 }
 
 function CalculatorResultDisplay({
   result,
   dict,
+  lang,
 }: CalculatorResultDisplayProps) {
+  const dateLocale = DATE_LOCALES[lang] ?? enUS;
   return (
     <Card className="border-primary-200 bg-primary-50/30">
       <CardHeader className="border-b-primary-100">
@@ -32,10 +39,10 @@ function CalculatorResultDisplay({
             {dict.endDate}
           </p>
           <p className="text-3xl font-bold text-primary-700">
-            {format(result.endDate, "MMMM d, yyyy")}
+            {format(result.endDate, "MMMM d, yyyy", { locale: dateLocale })}
           </p>
           <p className="text-sm text-grey-500 mt-1">
-            {format(result.endDate, "EEEE")}
+            {format(result.endDate, "EEEE", { locale: dateLocale })}
           </p>
         </div>
 
@@ -74,7 +81,7 @@ function CalculatorResultDisplay({
                   >
                     <span>{holiday.name}</span>
                     <span className="text-grey-400">
-                      {format(holiday.date, "MMM d")}
+                      {format(holiday.date, "MMM d", { locale: dateLocale })}
                     </span>
                   </li>
                 ))}

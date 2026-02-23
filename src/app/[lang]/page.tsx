@@ -123,12 +123,12 @@ export default async function HomePage({ params }: HomePageProps) {
       {/* ── Calculator ── */}
       <section id="calculator" className="scroll-mt-20 py-12 sm:py-16 bg-white">
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
-          <CalculatorForm countries={countries} dict={dict.calculator} />
+          <CalculatorForm countries={countries} dict={dict.calculator} lang={locale} />
         </div>
       </section>
 
       {/* ── Features ── */}
-      <section className="py-16 sm:py-24 bg-gradient-to-b from-primary-50/40 via-primary-50/20 to-white">
+      <section className="py-16 sm:py-24 bg-grey-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-grey-900 tracking-tight">
@@ -193,7 +193,7 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       {/* ── Use Cases ── */}
-      <section className="py-16 sm:py-24 bg-gradient-to-b from-primary-50/30 to-white">
+      <section className="py-16 sm:py-24 bg-grey-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-grey-900 tracking-tight">
@@ -260,9 +260,9 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       {/* ── Bottom CTA ── */}
-      <section className="py-16 sm:py-20 bg-gradient-to-b from-white via-grey-900 to-grey-900">
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-white via-primary-950 to-primary-950">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-600 to-primary-800 px-8 py-14 sm:px-14 sm:py-16 text-center">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 px-8 py-14 sm:px-14 sm:py-16 text-center">
             {/* Geometric hex pattern */}
             <svg
               className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.06]"

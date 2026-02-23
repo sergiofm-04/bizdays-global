@@ -82,6 +82,7 @@ export default async function CountryCalculatorPage({
       <CalculatorForm
         countries={countries}
         dict={dict.calculator}
+        lang={locale}
         defaultCountryCode={countryData.code}
       />
 

@@ -186,6 +186,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       countryPlaceholder: "Search for a country...",
       includeSaturdays: "Include Saturdays as working days",
       calculate: "Calculate End Date",
+      calculating: "Calculating...",
       result: {
         title: "Result",
         endDate: "End Date",
@@ -193,6 +194,11 @@ const dictionaries: Record<Locale, Dictionary> = {
         skippedWeekends: "Weekend days skipped",
         skippedHolidays: "Public holidays skipped",
         holidayList: "Holidays excluded",
+        summarySkipped: "Skipped",
+        summaryWeekendDays: "weekend day",
+        summaryHolidays: "holiday",
+        summaryNone: "No weekends or holidays were skipped.",
+        summaryAnd: "and",
       },
     },
     common: {
@@ -606,6 +612,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       countryPlaceholder: "Buscar un país...",
       includeSaturdays: "Incluir sábados como laborables",
       calculate: "Calcular Fecha Final",
+      calculating: "Calculando...",
       result: {
         title: "Resultado",
         endDate: "Fecha Final",
@@ -613,6 +620,11 @@ const dictionaries: Record<Locale, Dictionary> = {
         skippedWeekends: "Días de fin de semana omitidos",
         skippedHolidays: "Festivos omitidos",
         holidayList: "Festivos excluidos",
+        summarySkipped: "Se omitieron",
+        summaryWeekendDays: "día de fin de semana",
+        summaryHolidays: "festivo",
+        summaryNone: "No se omitieron fines de semana ni festivos.",
+        summaryAnd: "y",
       },
     },
     common: {

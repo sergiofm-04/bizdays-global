@@ -109,6 +109,7 @@ export interface Dictionary {
     countryPlaceholder: string;
     includeSaturdays: string;
     calculate: string;
+    calculating: string;
     result: {
       title: string;
       endDate: string;
@@ -116,6 +117,11 @@ export interface Dictionary {
       skippedWeekends: string;
       skippedHolidays: string;
       holidayList: string;
+      summarySkipped: string;
+      summaryWeekendDays: string;
+      summaryHolidays: string;
+      summaryNone: string;
+      summaryAnd: string;
     };
   };
   common: {

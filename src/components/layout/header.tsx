@@ -65,13 +65,13 @@ function Header({ lang, nav }: HeaderProps) {
         sticky top-0 z-50 w-full transition-all duration-300
         ${
           scrolled
-            ? "bg-white/95 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.08)] border-b border-grey-100/60"
+            ? "bg-white/95 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.06),0_6px_16px_rgba(0,0,0,0.03)] border-b border-grey-100/80"
             : "bg-white/80 backdrop-blur-md border-b border-transparent"
         }
       `}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-[60px] items-center justify-between">
           {/* Logo */}
           <Link
             href={`/${lang}`}
@@ -177,7 +177,7 @@ function Header({ lang, nav }: HeaderProps) {
             {/* Desktop CTA Button */}
             <Link
               href={`/${lang}#calculator`}
-              className="hidden md:inline-flex items-center gap-2 rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-primary-500/20 transition-all duration-200 hover:bg-primary-700 hover:shadow-md hover:-translate-y-px"
+              className="hidden md:inline-flex items-center gap-2 rounded-full bg-primary-600 px-5 py-2 text-sm font-semibold text-white shadow-sm shadow-primary-500/20 transition-all duration-200 hover:bg-primary-700 hover:shadow-md hover:-translate-y-px"
             >
               {nav.startCalculating}
               <ArrowRight className="h-4 w-4" />
@@ -222,7 +222,7 @@ function Header({ lang, nav }: HeaderProps) {
               <Link
                 href={`/${lang}#calculator`}
                 onClick={() => setMobileOpen(false)}
-                className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white"
+                className="mt-2 flex items-center justify-center gap-2 rounded-full bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white"
               >
                 {nav.startCalculating}
                 <ArrowRight className="h-4 w-4" />

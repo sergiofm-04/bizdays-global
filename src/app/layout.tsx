@@ -87,6 +87,11 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{ __html: getDefaultConsentScript() }}
         />
+        {/* Google AdSense verification */}
+        <meta name="google-adsense-account" content="ca-pub-6215000381628193" />
+        {/* PWA Manifest */}
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#2563eb" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

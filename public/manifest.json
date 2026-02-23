@@ -1,0 +1,55 @@
+{
+  "name": "BizDays Global",
+  "short_name": "BizDays",
+  "description": "Calculate business days excluding weekends and public holidays for 170+ countries. Free online tool for international teams.",
+  "start_url": "/en",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/images/logo/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/logo/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/logo/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/images/logo/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Calculator",
+      "short_name": "Calculator",
+      "url": "/en#calculator",
+      "description": "Open the business days calculator"
+    },
+    {
+      "name": "Calculadora",
+      "short_name": "Calculadora",
+      "url": "/es#calculator",
+      "description": "Abrir la calculadora de días hábiles"
+    }
+  ]
+}

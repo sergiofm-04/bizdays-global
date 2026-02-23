@@ -6,9 +6,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { locales, defaultLocale } from "@/lib/i18n";
 
-// ⚡ Set to false when the full app is ready to launch.
-// When true, "/" shows the coming-soon page instead of redirecting.
-const COMING_SOON_MODE = true;
+// ⚡ Coming-soon mode disabled — app is live.
+const COMING_SOON_MODE = false;
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;

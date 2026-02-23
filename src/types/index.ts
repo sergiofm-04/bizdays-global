@@ -83,6 +83,7 @@ export interface Dictionary {
     calculator: string;
     howItWorks: string;
     faq: string;
+    blog: string;
     countries: string;
     about: string;
     startCalculating: string;

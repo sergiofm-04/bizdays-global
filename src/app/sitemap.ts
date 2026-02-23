@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllCountrySlugs } from "@/lib/countries";
+import { getAllPostSlugs } from "@/lib/blog";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com";
@@ -72,6 +73,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.4,
     });
+  }
+
+  // Blog listing
+  for (const locale of LOCALES) {
+    entries.push({
+      url: `${SITE_URL}/${locale}/blog`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    });
+  }
+
+  // Blog articles
+  const postSlugs = getAllPostSlugs();
+  for (const locale of LOCALES) {
+    for (const slug of postSlugs) {
+      entries.push({
+        url: `${SITE_URL}/${locale}/blog/${slug}`,
+        lastModified: now,
+        changeFrequency: "monthly",
+        priority: 0.7,
+      });
+    }
   }
 
   return entries;

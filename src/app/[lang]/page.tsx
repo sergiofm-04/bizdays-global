@@ -48,66 +48,75 @@ export default async function HomePage({ params }: HomePageProps) {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-primary-50/60 via-white to-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-grey-950 via-primary-950 to-primary-800">
         {/* Dot-grid world-map pattern */}
         <svg
-          className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.04]"
+          className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.06]"
           aria-hidden="true"
         >
           <defs>
             <pattern id="dot-grid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-              <circle cx="2" cy="2" r="1" fill="#1e40af" />
+              <circle cx="2" cy="2" r="1" fill="white" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#dot-grid)" />
         </svg>
 
         {/* Gradient blobs */}
-        <div className="pointer-events-none absolute -top-24 right-0 h-[400px] w-[400px] rounded-full bg-primary-100/40 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-24 -left-24 h-[300px] w-[300px] rounded-full bg-primary-200/30 blur-3xl" />
+        <div className="pointer-events-none absolute -top-24 right-0 h-[400px] w-[400px] rounded-full bg-primary-500/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 -left-24 h-[300px] w-[300px] rounded-full bg-primary-400/10 blur-3xl" />
+        <div className="pointer-events-none absolute top-1/2 left-1/3 h-[250px] w-[250px] rounded-full bg-primary-600/8 blur-3xl" />
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8 sm:pt-24 sm:pb-12">
-          <div className="grid items-center gap-8 lg:grid-cols-[1fr_auto]">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-20 sm:pt-28 sm:pb-24">
+          <div className="grid items-center gap-12 lg:grid-cols-[1fr_auto]">
             {/* Left column — text */}
             <div className="text-center lg:text-left max-w-2xl mx-auto lg:mx-0">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-grey-900 leading-[1.1]">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
                 {h.hero.title}{" "}
-                <span className="bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary-400 to-primary-300 bg-clip-text text-transparent">
                   {h.hero.highlight}
                 </span>
               </h1>
-              <p className="mt-6 text-lg sm:text-xl text-grey-500 leading-relaxed">
+              <p className="mt-6 text-lg sm:text-xl text-primary-100/70 leading-relaxed">
                 {h.hero.subtitle}
               </p>
 
+              {/* CTA Button */}
+              <div className="mt-10 flex justify-center lg:justify-start">
+                <a
+                  href="#calculator"
+                  className="inline-flex items-center gap-2.5 rounded-xl bg-white px-8 py-4 text-base font-semibold text-primary-700 shadow-xl shadow-primary-900/30 transition-all duration-200 hover:shadow-2xl hover:-translate-y-0.5 hover:bg-primary-50"
+                >
+                  {h.hero.startButton}
+                  <ArrowRight className="h-5 w-5" />
+                </a>
+              </div>
+
               {/* Stats bar */}
-              <div className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-10">
+              <div className="mt-12 flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-10">
                 {h.stats.map((stat, i) => (
                   <div key={i} className="text-center">
-                    <div className="text-2xl sm:text-3xl font-extrabold text-grey-900">
+                    <div className="text-2xl sm:text-3xl font-extrabold text-white">
                       {stat.value}
                     </div>
-                    <div className="text-xs sm:text-sm text-grey-400 font-medium mt-0.5">
+                    <div className="text-xs sm:text-sm text-primary-200/60 font-medium mt-0.5">
                       {stat.label}
                     </div>
                   </div>
                 ))}
-              </div>
-
-              {/* Scroll indicator */}
-              <div className="mt-10 flex justify-center lg:justify-start">
-                <a
-                  href="#calculator"
-                  className="inline-flex flex-col items-center gap-1 text-grey-400 hover:text-primary-500 transition-colors"
-                >
-                  <ChevronDown className="h-5 w-5 animate-bounce" />
-                </a>
               </div>
             </div>
 
             {/* Right column — globe illustration (desktop only) */}
             <HeroGlobe className="hidden lg:block w-[340px] h-[340px] xl:w-[400px] xl:h-[400px] flex-shrink-0" />
           </div>
+        </div>
+
+        {/* Bottom wave divider */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto block" preserveAspectRatio="none">
+            <path d="M0 60h1440V30C1320 10 1200 0 1080 5 960 10 840 30 720 35 600 40 480 25 360 20 240 15 120 20 0 30V60Z" fill="white"/>
+          </svg>
         </div>
       </section>
 
@@ -119,7 +128,7 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       {/* ── Features ── */}
-      <section className="py-16 sm:py-24 bg-grey-50/50">
+      <section className="py-16 sm:py-24 bg-gradient-to-b from-primary-50/40 via-primary-50/20 to-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-grey-900 tracking-tight">
@@ -184,7 +193,7 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       {/* ── Use Cases ── */}
-      <section className="py-16 sm:py-24 bg-gradient-to-b from-grey-50/50 to-white">
+      <section className="py-16 sm:py-24 bg-gradient-to-b from-primary-50/30 to-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-grey-900 tracking-tight">
@@ -251,7 +260,7 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       {/* ── Bottom CTA ── */}
-      <section className="py-16 sm:py-20">
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-white via-grey-900 to-grey-900">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-600 to-primary-800 px-8 py-14 sm:px-14 sm:py-16 text-center">
             {/* Geometric hex pattern */}

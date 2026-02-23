@@ -57,10 +57,10 @@ export function generateBaseMetadata(locale: Locale): Metadata {
       },
     },
     alternates: {
-      canonical: "/",
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com"}/`,
       languages: {
-        en: "/en",
-        es: "/es",
+        en: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com"}/en`,
+        es: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com"}/es`,
       },
     },
   };
@@ -91,10 +91,10 @@ export function generateCountryMetadata(
       url: `/${locale}/calculator/business-days/${countrySlug}`,
     },
     alternates: {
-      canonical: `/${locale}/calculator/business-days/${countrySlug}`,
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com"}/${locale}/calculator/business-days/${countrySlug}`,
       languages: {
-        en: `/en/calculator/business-days/${countrySlug}`,
-        es: `/es/calculator/business-days/${countrySlug}`,
+        en: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com"}/en/calculator/business-days/${countrySlug}`,
+        es: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com"}/es/calculator/business-days/${countrySlug}`,
       },
     },
   };

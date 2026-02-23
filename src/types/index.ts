@@ -53,6 +53,7 @@ export interface Dictionary {
       title: string;
       highlight: string;
       subtitle: string;
+      startButton: string;
     };
     stats: { value: string; label: string }[];
     features: {
@@ -82,6 +83,7 @@ export interface Dictionary {
     calculator: string;
     countries: string;
     about: string;
+    startCalculating: string;
   };
   cookieConsent: {
     title: string;

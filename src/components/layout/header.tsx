@@ -5,7 +5,7 @@
 
 "use client";
 
-import { Globe, ChevronDown, Menu, X } from "lucide-react";
+import { Globe, ChevronDown, Menu, X, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -54,11 +54,10 @@ function Header({ lang, nav }: HeaderProps) {
   }, []);
 
   const navLinks = [
-    { href: `/${lang}`, label: nav.calculator },
-    { href: `/${lang}/calculator/business-days/united-states`, label: nav.countries },
+    { href: `/${lang}#calculator`, label: nav.calculator },
   ];
 
-  const isActive = (href: string) => pathname === href;
+  const isActive = (href: string) => pathname === `/${lang}` && href.includes("#calculator");
 
   return (
     <header
@@ -106,16 +105,13 @@ function Header({ lang, nav }: HeaderProps) {
                 `}
               >
                 {link.label}
-                {isActive(link.href) && (
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-5 rounded-full bg-primary-500" />
-                )}
               </Link>
             ))}
           </nav>
 
           {/* Right section */}
-          <div className="flex items-center gap-2">
-            {/* Language Switcher — Dropdown */}
+          <div className="flex items-center gap-3">
+            {/* Language Switcher */}
             <div ref={langRef} className="relative">
               <button
                 onClick={() => setLangOpen(!langOpen)}
@@ -178,6 +174,15 @@ function Header({ lang, nav }: HeaderProps) {
               )}
             </div>
 
+            {/* Desktop CTA Button */}
+            <Link
+              href={`/${lang}#calculator`}
+              className="hidden md:inline-flex items-center gap-2 rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-primary-500/20 transition-all duration-200 hover:bg-primary-700 hover:shadow-md hover:-translate-y-px"
+            >
+              {nav.startCalculating}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+
             {/* Mobile hamburger */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -214,6 +219,14 @@ function Header({ lang, nav }: HeaderProps) {
                   {link.label}
                 </Link>
               ))}
+              <Link
+                href={`/${lang}#calculator`}
+                onClick={() => setMobileOpen(false)}
+                className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white"
+              >
+                {nav.startCalculating}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </nav>
         )}

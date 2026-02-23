@@ -24,6 +24,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         highlight: "Across 170+ Countries",
         subtitle:
           "The free, instant tool used by logistics, HR, finance and legal teams worldwide to calculate delivery dates, exclude public holidays, and plan international deadlines with confidence.",
+        startButton: "Start Calculating",
       },
       stats: [
         { value: "170+", label: "Countries" },
@@ -158,6 +159,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       calculator: "Calculator",
       countries: "Countries",
       about: "About",
+      startCalculating: "Start Calculating",
     },
     cookieConsent: {
       title: "We value your privacy",
@@ -442,6 +444,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         highlight: "En Más de 170 Países",
         subtitle:
           "La herramienta gratuita e instantánea que usan equipos de logística, RRHH, finanzas y legal en todo el mundo para calcular fechas de entrega, excluir festivos y planificar plazos internacionales con confianza.",
+        startButton: "Empieza a calcular",
       },
       stats: [
         { value: "170+", label: "Países" },
@@ -576,6 +579,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       calculator: "Calculadora",
       countries: "Países",
       about: "Acerca de",
+      startCalculating: "Empieza a calcular",
     },
     cookieConsent: {
       title: "Valoramos tu privacidad",

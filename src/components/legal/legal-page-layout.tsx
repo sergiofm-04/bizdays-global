@@ -87,6 +87,7 @@ function processInline(text: string): React.ReactNode {
 
 function LegalPageLayout({ title, lastUpdated, sections }: LegalPageLayoutProps) {
   return (
+    <div className="bg-white min-h-screen">
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10">
       {/* Header */}
       <div className="mb-8">
@@ -119,6 +120,7 @@ function LegalPageLayout({ title, lastUpdated, sections }: LegalPageLayoutProps)
           © {new Date().getFullYear()} BizDays Global. All rights reserved.
         </p>
       </div>
+    </div>
     </div>
   );
 }

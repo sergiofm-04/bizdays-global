@@ -10,6 +10,8 @@ import { isValidLocale, getDictionary } from "@/lib/i18n";
 import { ContactForm } from "@/components/contact/contact-form";
 import type { Locale } from "@/types";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com";
+
 interface PageProps {
   params: Promise<{ lang: string }>;
 }
@@ -22,8 +24,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: dict.contact.title,
     description: dict.contact.description,
     alternates: {
-      canonical: `/${lang}/contact`,
-      languages: { en: "/en/contact", es: "/es/contact" },
+      canonical: `${SITE_URL}/${lang}/contact`,
+      languages: { en: `${SITE_URL}/en/contact`, es: `${SITE_URL}/es/contact` },
     },
   };
 }

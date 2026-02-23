@@ -10,6 +10,8 @@ import { isValidLocale, getDictionary } from "@/lib/i18n";
 import { LegalPageLayout } from "@/components/legal/legal-page-layout";
 import type { Locale } from "@/types";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com";
+
 interface PageProps {
   params: Promise<{ lang: string }>;
 }
@@ -22,8 +24,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: dict.legal.cookies.title,
     description: dict.legal.cookies.description,
     alternates: {
-      canonical: `/${lang}/legal/cookie-policy`,
-      languages: { en: "/en/legal/cookie-policy", es: "/es/legal/cookie-policy" },
+      canonical: `${SITE_URL}/${lang}/legal/cookie-policy`,
+      languages: { en: `${SITE_URL}/en/legal/cookie-policy`, es: `${SITE_URL}/es/legal/cookie-policy` },
     },
   };
 }

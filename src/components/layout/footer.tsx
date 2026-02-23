@@ -26,7 +26,6 @@ function Footer({ dict, lang }: FooterProps) {
 
   const navLinks = [
     { href: `/${lang}#calculator`, label: lang === "es" ? "Calculadora" : "Calculator" },
-    { href: `/${lang}#`, label: lang === "es" ? "Países" : "Countries" },
   ];
 
   return (

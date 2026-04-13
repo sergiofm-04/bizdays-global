@@ -4,14 +4,16 @@
 // ============================================
 
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 import { isValidLocale, getDictionary, locales } from "@/lib/i18n";
 import { generateCountryMetadata } from "@/lib/seo";
 import {
   getSupportedCountries,
   getCountryBySlug,
+  getCountryByLegacySlug,
   getAllCountrySlugs,
+  countryNameToSlug,
 } from "@/lib/countries";
 import { getHolidaysForYear } from "@/lib/business-days";
 import { CalculatorForm } from "@/components/calculator/calculator-form";
@@ -56,9 +58,17 @@ export default async function CountryCalculatorPage({
   const locale = lang as Locale;
   const dict = getDictionary(locale);
   const countries = getSupportedCountries();
-  const countryData = getCountryBySlug(countrySlug);
+  let countryData = getCountryBySlug(countrySlug);
 
-  if (!countryData) notFound();
+  if (!countryData) {
+    const legacyCountry = getCountryByLegacySlug(countrySlug);
+    if (legacyCountry) {
+      redirect(
+        `/${locale}/calculator/business-days/${countryNameToSlug(legacyCountry.name)}`
+      );
+    }
+    notFound();
+  }
 
   const currentYear = new Date().getFullYear();
   const holidays = getHolidaysForYear(countryData.code, currentYear);

@@ -9,6 +9,21 @@ import type { Country, CountryCode } from "@/types";
 /** Cached list of supported countries */
 let cachedCountries: Country[] | null = null;
 
+function stripDiacritics(input: string): string {
+  // Converts e.g. "España" -> "Espana", "Côte d’Ivoire" -> "Cote d’Ivoire"
+  // NFKD helps decompose more characters than NFD.
+  return input.normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
+}
+
+function legacyCountryNameToSlug(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .trim();
+}
+
 /**
  * Get all countries supported by date-holidays.
  * Results are cached after the first call.
@@ -54,7 +69,8 @@ export function isValidCountryCode(code: string): boolean {
  * e.g., "United States of America" → "united-states-of-america"
  */
 export function countryNameToSlug(name: string): string {
-  return name
+  const asciiName = stripDiacritics(name);
+  return asciiName
     .toLowerCase()
     .replace(/[^a-z0-9\s-]/g, "")
     .replace(/\s+/g, "-")
@@ -68,6 +84,15 @@ export function countryNameToSlug(name: string): string {
 export function getCountryBySlug(slug: string): Country | undefined {
   const countries = getSupportedCountries();
   return countries.find((c) => countryNameToSlug(c.name) === slug);
+}
+
+/**
+ * Legacy slug lookup (pre-diacritic normalization).
+ * Useful to redirect old slugs to the new canonical slug.
+ */
+export function getCountryByLegacySlug(slug: string): Country | undefined {
+  const countries = getSupportedCountries();
+  return countries.find((c) => legacyCountryNameToSlug(c.name) === slug);
 }
 
 /**

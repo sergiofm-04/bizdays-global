@@ -308,10 +308,10 @@ export default async function HomePage({ params }: HomePageProps) {
 
       {/* ── Bottom CTA ── */}
       <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 pt-0 pb-16 sm:pb-20">
-        {/* Wave divider — seamless transition from white FAQ above */}
+        {/* Wave divider — seamless transition from grey section above */}
         <div className="w-full overflow-hidden leading-[0]">
-          <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto block" preserveAspectRatio="none">
-            <path d="M0 0h1440v20C1320 60 1200 80 1080 70 960 60 840 30 720 25 600 20 480 45 360 55 240 65 120 50 0 40V0Z" fill="white"/>
+          <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto block text-grey-50" preserveAspectRatio="none">
+            <path d="M0 0h1440v20C1320 60 1200 80 1080 70 960 60 840 30 720 25 600 20 480 45 360 55 240 65 120 50 0 40V0Z" fill="currentColor"/>
           </svg>
         </div>
 

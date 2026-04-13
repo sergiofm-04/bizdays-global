@@ -73,6 +73,12 @@ export interface Dictionary {
       title: string;
       items: { question: string; answer: string }[];
     };
+    blog: {
+      title: string;
+      subtitle: string;
+      button: string;
+      readMore: string;
+    };
     cta: {
       title: string;
       subtitle: string;

@@ -149,6 +149,13 @@ const dictionaries: Record<Locale, Dictionary> = {
           },
         ],
       },
+      blog: {
+        title: "Latest from the blog",
+        subtitle:
+          "Practical guides on business days, public holidays, and deadline planning for global teams.",
+        button: "Go to the blog",
+        readMore: "Read article",
+      },
       cta: {
         title: "Ready to calculate?",
         subtitle: "Scroll up and try the calculator — it takes 5 seconds.",
@@ -577,6 +584,13 @@ const dictionaries: Record<Locale, Dictionary> = {
               "El conteo manual es propenso a errores, especialmente entre países. Perder un solo festivo puede retrasar envíos, incumplir plazos contractuales o causar errores en nóminas. Automatizarlo elimina el error humano.",
           },
         ],
+      },
+      blog: {
+        title: "Lo último en el blog",
+        subtitle:
+          "Guías prácticas sobre días laborables, festivos y planificación de plazos para equipos internacionales.",
+        button: "Ir al blog",
+        readMore: "Leer artículo",
       },
       cta: {
         title: "¿Listo para calcular?",

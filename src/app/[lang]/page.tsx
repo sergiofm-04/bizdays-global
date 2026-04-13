@@ -22,6 +22,7 @@ import {
 
 import { isValidLocale, getDictionary } from "@/lib/i18n";
 import { getSupportedCountries } from "@/lib/countries";
+import { getAllPosts } from "@/lib/blog";
 import { CalculatorForm } from "@/components/calculator/calculator-form";
 import { HeroGlobe } from "@/components/illustrations/hero-globe";
 import type { Locale } from "@/types";
@@ -44,6 +45,7 @@ export default async function HomePage({ params }: HomePageProps) {
   const dict = getDictionary(locale);
   const countries = getSupportedCountries();
   const h = dict.home;
+  const latestPosts = getAllPosts().slice(0, 3);
 
   return (
     <>
@@ -255,6 +257,51 @@ export default async function HomePage({ params }: HomePageProps) {
                 </p>
               </details>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Blog ── */}
+      <section className="py-16 sm:py-24 bg-grey-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-grey-900 tracking-tight">
+              {h.blog.title}
+            </h2>
+            <p className="mt-4 text-lg text-grey-500">{h.blog.subtitle}</p>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            {latestPosts.map((post) => (
+              <article
+                key={post.slug}
+                className="group rounded-2xl border border-grey-100 bg-white p-6 transition-all duration-300 hover:border-primary-200 hover:shadow-lg hover:shadow-primary-500/5"
+              >
+                <h3 className="text-base font-semibold text-grey-900 group-hover:text-primary-700 transition-colors">
+                  <Link href={`/${locale}/blog/${post.slug}`}>{post.title[locale]}</Link>
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-grey-500">
+                  {post.description[locale]}
+                </p>
+                <Link
+                  href={`/${locale}/blog/${post.slug}`}
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 transition-colors hover:text-primary-700"
+                >
+                  {h.blog.readMore}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10 flex justify-center">
+            <Link
+              href={`/${locale}/blog`}
+              className="inline-flex items-center gap-2.5 rounded-xl bg-primary-600 px-8 py-4 text-base font-semibold text-white shadow-sm transition-all duration-200 hover:bg-primary-700 hover:-translate-y-0.5"
+            >
+              {h.blog.button}
+              <ArrowRight className="h-5 w-5" />
+            </Link>
           </div>
         </div>
       </section>

@@ -4,7 +4,6 @@
 // ============================================
 
 import type { ReactNode } from "react";
-import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 
 import { isValidLocale, getDictionary, locales } from "@/lib/i18n";
@@ -13,12 +12,6 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { CookieBanner } from "@/components/consent/cookie-banner";
 import type { Locale } from "@/types";
-
-const inter = Inter({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 interface LangLayoutProps {
   children: ReactNode;

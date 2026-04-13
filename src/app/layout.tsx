@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { getDefaultConsentScript } from "@/lib/consent";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/400-italic.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin", "latin-ext"] });
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com";
 
@@ -136,7 +137,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} antialiased min-h-screen flex flex-col`}>{children}</body>
+      <body className="antialiased min-h-screen flex flex-col">{children}</body>
     </html>
   );
 }

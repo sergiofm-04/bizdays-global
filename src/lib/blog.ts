@@ -7,6 +7,384 @@ import type { BlogPost } from "@/types/blog";
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "business-days-in-excel-and-google-sheets",
+    title: {
+      en: "Business Days in Excel & Google Sheets (With Holidays)",
+      es: "Días laborables en Excel y Google Sheets (con festivos)",
+    },
+    description: {
+      en: "Learn the exact formulas to count and add business days in Excel/Sheets using weekends + holiday lists, with examples you can copy.",
+      es: "Aprende las fórmulas exactas para contar y sumar días laborables en Excel/Sheets usando fines de semana + lista de festivos, con ejemplos listos para copiar.",
+    },
+    publishedAt: "2026-04-13",
+    updatedAt: "2026-04-13",
+    readingTime: { en: "9 min read", es: "9 min de lectura" },
+    author: "BizDays Global",
+    keywords: [
+      "business days excel",
+      "business days google sheets",
+      "NETWORKDAYS",
+      "WORKDAY",
+      "días laborables excel",
+      "días hábiles google sheets",
+      "festivos excel",
+    ],
+    category: { en: "Guides", es: "Guías" },
+    body: {
+      en: `
+<p>Spreadsheets are great for planning — until you need <strong>business days</strong> instead of calendar days. The moment you must exclude weekends and public holidays, manual counting becomes error-prone.</p>
+
+<p>In this guide you’ll learn the practical Excel and Google Sheets formulas to:</p>
+<ul>
+  <li><strong>Count</strong> business days between two dates</li>
+  <li><strong>Add</strong> N business days to a start date</li>
+  <li><strong>Exclude</strong> a custom holiday list</li>
+  <li><strong>Handle</strong> different weekend rules</li>
+</ul>
+
+<h2>1) Count business days between two dates</h2>
+
+<h3>Excel</h3>
+<p>Use <strong>NETWORKDAYS</strong>:</p>
+<pre><code>=NETWORKDAYS(A2, B2)
+</code></pre>
+
+<p>If you have a holiday list (one date per row), e.g. <code>H2:H40</code>:</p>
+<pre><code>=NETWORKDAYS(A2, B2, $H$2:$H$40)
+</code></pre>
+
+<h3>Google Sheets</h3>
+<p>Sheets supports the same function:</p>
+<pre><code>=NETWORKDAYS(A2, B2, $H$2:$H$40)
+</code></pre>
+
+<p><strong>Tip:</strong> Keep your holiday list as real date values (not text). If formulas “don’t work”, the most common cause is that holidays are stored as strings.</p>
+
+<h2>2) Add N business days to a date</h2>
+
+<h3>Excel</h3>
+<p>Use <strong>WORKDAY</strong>:</p>
+<pre><code>=WORKDAY(A2, C2)
+</code></pre>
+
+<p>With holidays:</p>
+<pre><code>=WORKDAY(A2, C2, $H$2:$H$40)
+</code></pre>
+
+<h3>Google Sheets</h3>
+<pre><code>=WORKDAY(A2, C2, $H$2:$H$40)
+</code></pre>
+
+<p>This is perfect for “start date + lead time” planning (shipping, procurement, SLAs, HR timelines).</p>
+
+<h2>3) Custom weekend rules (e.g., Friday–Saturday weekends)</h2>
+
+<p>When your weekend is not Saturday–Sunday, use the “.INTL” versions:</p>
+
+<h3>Excel</h3>
+<pre><code>=NETWORKDAYS.INTL(A2, B2, "0000011", $H$2:$H$40)
+</code></pre>
+
+<p>The weekend code tells Excel which days are weekends (1 = weekend). In the example above, the last two days are weekends. Excel also supports numeric weekend codes; use the one that matches your region/industry.</p>
+
+<h3>Google Sheets</h3>
+<pre><code>=NETWORKDAYS.INTL(A2, B2, "0000011", $H$2:$H$40)
+</code></pre>
+
+<h2>4) A safer workflow: spreadsheet + verified holiday source</h2>
+
+<p>Spreadsheets are only as accurate as your holiday list. For international work, maintaining holiday lists across countries and years is the hard part.</p>
+
+<p>If you need quick, country-aware results (and a list of skipped holidays), use our calculator and then paste results back into your sheet for tracking.</p>
+
+<h2>Common mistakes to avoid</h2>
+<ul>
+  <li><strong>Mixed date formats:</strong> ensure all inputs are real dates.</li>
+  <li><strong>Wrong timezone conversions:</strong> importing dates from APIs can shift days.</li>
+  <li><strong>Incomplete holiday lists:</strong> many countries have regional holidays.</li>
+  <li><strong>Industry exceptions:</strong> some teams treat Saturdays as working days.</li>
+</ul>
+
+<h2>Conclusion</h2>
+
+<p>With <strong>NETWORKDAYS</strong> / <strong>WORKDAY</strong> (and their <strong>.INTL</strong> variants), you can make Excel/Sheets handle business days reliably — as long as your holiday list is correct.</p>
+`,
+      es: `
+<p>Las hojas de cálculo son geniales para planificar — hasta que necesitas <strong>días laborables</strong> en lugar de días naturales. En cuanto hay que excluir fines de semana y festivos, contar a mano se vuelve propenso a errores.</p>
+
+<p>En esta guía verás fórmulas prácticas para Excel y Google Sheets que te permiten:</p>
+<ul>
+  <li><strong>Contar</strong> días laborables entre dos fechas</li>
+  <li><strong>Sumar</strong> N días laborables a una fecha</li>
+  <li><strong>Excluir</strong> una lista de festivos</li>
+  <li><strong>Gestionar</strong> fines de semana distintos</li>
+</ul>
+
+<h2>1) Contar días laborables entre dos fechas</h2>
+
+<h3>Excel</h3>
+<p>Usa <strong>NETWORKDAYS</strong> (en algunas versiones localizadas: <em>DIAS.LAB</em>):</p>
+<pre><code>=NETWORKDAYS(A2, B2)
+</code></pre>
+
+<p>Si tienes una lista de festivos (una fecha por fila), por ejemplo <code>H2:H40</code>:</p>
+<pre><code>=NETWORKDAYS(A2, B2, $H$2:$H$40)
+</code></pre>
+
+<h3>Google Sheets</h3>
+<pre><code>=NETWORKDAYS(A2, B2, $H$2:$H$40)
+</code></pre>
+
+<p><strong>Consejo:</strong> asegúrate de que los festivos sean fechas reales (no texto). Si la fórmula “no funciona”, lo más típico es que el rango de festivos esté como strings.</p>
+
+<h2>2) Sumar N días laborables a una fecha</h2>
+
+<h3>Excel</h3>
+<p>Usa <strong>WORKDAY</strong> (en algunas versiones localizadas: <em>DIA.LAB</em>):</p>
+<pre><code>=WORKDAY(A2, C2)
+</code></pre>
+
+<p>Con festivos:</p>
+<pre><code>=WORKDAY(A2, C2, $H$2:$H$40)
+</code></pre>
+
+<h3>Google Sheets</h3>
+<pre><code>=WORKDAY(A2, C2, $H$2:$H$40)
+</code></pre>
+
+<p>Esto encaja perfecto en flujos tipo “fecha de inicio + lead time” (envíos, compras, SLAs, RRHH).</p>
+
+<h2>3) Fines de semana personalizados</h2>
+
+<p>Si tu fin de semana no es sábado–domingo, usa las versiones “.INTL”:</p>
+
+<h3>Excel</h3>
+<pre><code>=NETWORKDAYS.INTL(A2, B2, "0000011", $H$2:$H$40)
+</code></pre>
+
+<h3>Google Sheets</h3>
+<pre><code>=NETWORKDAYS.INTL(A2, B2, "0000011", $H$2:$H$40)
+</code></pre>
+
+<p>El código indica qué días cuentan como fin de semana (1 = fin de semana). Usa el que corresponda a tu caso.</p>
+
+<h2>4) Flujo más fiable: hoja de cálculo + fuente de festivos verificada</h2>
+
+<p>Las hojas de cálculo solo son tan precisas como tu lista de festivos. En trabajo internacional, lo difícil es mantener listas correctas por país y año.</p>
+
+<p>Si necesitas resultados rápidos por país (y ver qué festivos se han omitido), usa la calculadora y luego vuelca el resultado en tu hoja para hacer seguimiento.</p>
+
+<h2>Errores típicos</h2>
+<ul>
+  <li><strong>Fechas en formatos mezclados:</strong> asegúrate de que todo sea fecha.</li>
+  <li><strong>Problemas de zona horaria:</strong> al importar desde APIs, a veces cambia el día.</li>
+  <li><strong>Listas incompletas:</strong> muchos países tienen festivos regionales.</li>
+  <li><strong>Excepciones por sector:</strong> en algunos casos el sábado es laborable.</li>
+</ul>
+
+<h2>Conclusión</h2>
+
+<p>Con <strong>NETWORKDAYS</strong> / <strong>WORKDAY</strong> (y sus variantes <strong>.INTL</strong>) puedes hacer que Excel/Sheets cuenten días laborables de forma consistente — siempre que la lista de festivos sea correcta.</p>
+`,
+    },
+  },
+
+  {
+    slug: "net-30-business-days-vs-calendar-days",
+    title: {
+      en: "Net 30 Business Days vs Net 30 Days: The Real Difference",
+      es: "Net 30 días laborables vs Net 30 días: cuál es la diferencia real",
+    },
+    description: {
+      en: "Net terms are easy to misinterpret. Learn how Net 30 business days differs from Net 30 calendar days, with practical examples.",
+      es: "Los términos de pago se malinterpretan con facilidad. Aprende la diferencia entre Net 30 días laborables y Net 30 días naturales, con ejemplos prácticos.",
+    },
+    publishedAt: "2026-04-13",
+    updatedAt: "2026-04-13",
+    readingTime: { en: "7 min read", es: "7 min de lectura" },
+    author: "BizDays Global",
+    keywords: [
+      "net 30 business days",
+      "net terms",
+      "payment terms",
+      "accounts payable",
+      "net 30 días laborables",
+      "plazos de pago",
+    ],
+    category: { en: "Guides", es: "Guías" },
+    body: {
+      en: `
+<p>“Net 30” sounds simple: pay within 30 days. But in real operations, there’s a huge difference between <strong>Net 30 days</strong> (calendar days) and <strong>Net 30 business days</strong> (working days).</p>
+
+<h2>Why it matters</h2>
+<ul>
+  <li><strong>Cash flow:</strong> a 2–3 week shift changes your forecast.</li>
+  <li><strong>Disputes:</strong> vendors and customers often assume different definitions.</li>
+  <li><strong>Compliance:</strong> some industries have strict “business day” rules.</li>
+</ul>
+
+<h2>Net 30 calendar days</h2>
+<p>This is the straightforward version: invoice date + 30 days. Weekends and holidays do not pause the countdown.</p>
+
+<h2>Net 30 business days</h2>
+<p>This version counts only working days. Weekends are excluded, and many organizations also exclude public holidays (depending on contract wording and jurisdiction).</p>
+
+<h2>A concrete example</h2>
+<p>Invoice date: <strong>April 1</strong>. If you count 30 calendar days, the due date is around <strong>May 1</strong> (depending on month length).</p>
+
+<p>If you count 30 business days, the due date is typically <strong>6+ weeks later</strong> because you skip weekends — and potentially additional holidays.</p>
+
+<h2>How to avoid misunderstandings</h2>
+<ol>
+  <li><strong>Write it explicitly:</strong> “30 calendar days” or “30 business days”.</li>
+  <li><strong>Define holidays:</strong> specify which country’s holiday calendar applies.</li>
+  <li><strong>Confirm the weekend rule:</strong> some industries treat Saturdays differently.</li>
+  <li><strong>Document the calculation method:</strong> attach an example in the contract if high value.</li>
+</ol>
+
+<h2>Best practice for international teams</h2>
+<p>If invoicing crosses borders, choose a single reference calendar and state it (for example, “business days in Spain, excluding Spain public holidays”). Otherwise, the same phrase can mean different due dates in different countries.</p>
+
+<h2>Conclusion</h2>
+<p>“Net 30” is not always “30 days”. If your contracts or workflows depend on working days, use a business-day calculator (and the right holiday calendar) to avoid surprises.</p>
+`,
+      es: `
+<p>“Net 30” parece simple: pagar en 30 días. Pero en la práctica hay una diferencia enorme entre <strong>Net 30 días</strong> (días naturales) y <strong>Net 30 días laborables</strong> (días hábiles).</p>
+
+<h2>Por qué importa</h2>
+<ul>
+  <li><strong>Tesorería:</strong> un desplazamiento de 2–3 semanas cambia tu previsión.</li>
+  <li><strong>Disputas:</strong> proveedores y clientes asumen definiciones distintas.</li>
+  <li><strong>Cumplimiento:</strong> en algunos sectores hay reglas estrictas sobre “días hábiles”.</li>
+</ul>
+
+<h2>Net 30 días naturales</h2>
+<p>Es la versión directa: fecha de factura + 30 días. Fines de semana y festivos no “pausan” el conteo.</p>
+
+<h2>Net 30 días laborables</h2>
+<p>Cuenta solo días de trabajo. Se excluyen fines de semana y, en muchos casos, también festivos (según el contrato y la jurisdicción).</p>
+
+<h2>Ejemplo concreto</h2>
+<p>Fecha de factura: <strong>1 de abril</strong>. Si cuentas 30 días naturales, el vencimiento cae alrededor del <strong>1 de mayo</strong> (según el mes).</p>
+
+<p>Si cuentas 30 días laborables, el vencimiento suele ser <strong>6+ semanas después</strong> porque se saltan fines de semana — y potencialmente festivos.</p>
+
+<h2>Cómo evitar malentendidos</h2>
+<ol>
+  <li><strong>Escríbelo explícito:</strong> “30 días naturales” o “30 días laborables”.</li>
+  <li><strong>Define festivos:</strong> especifica qué calendario de país aplica.</li>
+  <li><strong>Confirma el fin de semana:</strong> algunos sectores tratan el sábado distinto.</li>
+  <li><strong>Documenta el método:</strong> si es un contrato importante, añade un ejemplo.</li>
+</ol>
+
+<h2>Buena práctica para equipos internacionales</h2>
+<p>Si hay países distintos involucrados, elige un calendario de referencia y decláralo (por ejemplo: “días laborables en España, excluyendo festivos de España”). Así evitas que la misma frase genere fechas distintas según el país.</p>
+
+<h2>Conclusión</h2>
+<p>“Net 30” no siempre significa “30 días”. Si tus procesos dependen de días laborables, usa un cálculo basado en el calendario correcto para evitar sorpresas.</p>
+`,
+    },
+  },
+
+  {
+    slug: "estimate-delivery-dates-with-business-days",
+    title: {
+      en: "How to Estimate Delivery Dates Using Business Days (Shipping & SLAs)",
+      es: "Cómo estimar fechas de entrega con días laborables (envíos y SLAs)",
+    },
+    description: {
+      en: "Turn lead times like “15 business days” into a real delivery date. Learn a reliable workflow that accounts for weekends and public holidays.",
+      es: "Convierte plazos como “15 días laborables” en una fecha real de entrega. Un método fiable que tiene en cuenta fines de semana y festivos.",
+    },
+    publishedAt: "2026-04-13",
+    updatedAt: "2026-04-13",
+    readingTime: { en: "8 min read", es: "8 min de lectura" },
+    author: "BizDays Global",
+    keywords: [
+      "delivery date business days",
+      "shipping lead time",
+      "SLA business days",
+      "fecha de entrega días laborables",
+      "plazo días hábiles",
+    ],
+    category: { en: "Operations", es: "Operaciones" },
+    body: {
+      en: `
+<p>Logistics and service teams rarely work in “calendar days”. Quotes often look like: <strong>“15 business days”</strong>, <strong>“T+2”</strong>, or <strong>“response within 5 business days”</strong>. The challenge is translating that into a real date you can communicate.</p>
+
+<h2>Step 1: Clarify what “business day” means</h2>
+<ul>
+  <li><strong>Weekend rule:</strong> Is Saturday excluded? Is Sunday always excluded?</li>
+  <li><strong>Holiday calendar:</strong> Which country’s public holidays apply?</li>
+  <li><strong>Cut-off time:</strong> Does an order placed after 16:00 start counting the next day?</li>
+</ul>
+
+<h2>Step 2: Identify the “counting start date”</h2>
+<p>Many SLAs start on the next business day after an event (payment received, order confirmed, ticket created). Write down the exact rule and keep it consistent.</p>
+
+<h2>Step 3: Add lead time using a business-day calculator</h2>
+<p>Once you know the start date, add the quoted business days while excluding weekends and public holidays. This produces the target delivery date.</p>
+
+<h2>Step 4: Communicate with confidence</h2>
+<p>A strong confirmation message includes both:</p>
+<ul>
+  <li><strong>Lead time:</strong> “15 business days”</li>
+  <li><strong>Target date:</strong> “Estimated delivery: May 24”</li>
+</ul>
+
+<h2>Common pitfalls</h2>
+<ul>
+  <li><strong>Cross-border shipments:</strong> holidays in origin and destination can both matter.</li>
+  <li><strong>Regional holidays:</strong> some countries have state/province-specific holidays.</li>
+  <li><strong>Peak seasons:</strong> end-of-year slowdowns can add non-official delays.</li>
+</ul>
+
+<h2>A practical template you can reuse</h2>
+<p><em>“Lead time is measured in business days (excluding weekends and public holidays in [COUNTRY]). Orders confirmed after [TIME] start counting the next business day.”</em></p>
+
+<h2>Conclusion</h2>
+<p>Most delivery and SLA mistakes come from unclear definitions. Make weekends/holidays explicit, then use business-day counting to convert lead times into real dates you can stand behind.</p>
+`,
+      es: `
+<p>En logística y en soporte, rara vez se trabaja en “días naturales”. Es habitual ver plazos como <strong>“15 días laborables”</strong>, <strong>“T+2”</strong> o <strong>“respuesta en 5 días laborables”</strong>. El reto es convertirlo en una fecha real que puedas comunicar.</p>
+
+<h2>Paso 1: Aclara qué significa “día laborable”</h2>
+<ul>
+  <li><strong>Regla de fin de semana:</strong> ¿se excluye el sábado? ¿el domingo siempre se excluye?</li>
+  <li><strong>Calendario de festivos:</strong> ¿qué país aplica?</li>
+  <li><strong>Hora de corte:</strong> si un pedido entra después de las 16:00, ¿empieza a contar al día siguiente?</li>
+</ul>
+
+<h2>Paso 2: Define la fecha de inicio del conteo</h2>
+<p>Muchos SLAs empiezan el siguiente día laborable tras un evento (pago recibido, pedido confirmado, ticket creado). Deja la regla por escrito y sé consistente.</p>
+
+<h2>Paso 3: Suma el lead time con un cálculo de días laborables</h2>
+<p>Con la fecha de inicio clara, suma los días laborables excluyendo fines de semana y festivos. Esto te devuelve la fecha objetivo de entrega.</p>
+
+<h2>Paso 4: Comunica la estimación con claridad</h2>
+<p>Un mensaje sólido incluye:</p>
+<ul>
+  <li><strong>Plazo:</strong> “15 días laborables”</li>
+  <li><strong>Fecha objetivo:</strong> “Entrega estimada: 24 de mayo”</li>
+</ul>
+
+<h2>Errores típicos</h2>
+<ul>
+  <li><strong>Envíos internacionales:</strong> pueden influir festivos del origen y del destino.</li>
+  <li><strong>Festivos regionales:</strong> en algunos países varían por región.</li>
+  <li><strong>Temporadas pico:</strong> fin de año añade retrasos no oficiales.</li>
+</ul>
+
+<h2>Plantilla reutilizable</h2>
+<p><em>“El plazo se mide en días laborables (excluyendo fines de semana y festivos de [PAÍS]). Los pedidos confirmados después de [HORA] comienzan a contar el siguiente día laborable.”</em></p>
+
+<h2>Conclusión</h2>
+<p>La mayoría de errores vienen de definiciones ambiguas. Haz explícitos fines de semana/festivos y luego usa conteo de días laborables para convertir plazos en fechas reales.</p>
+`,
+    },
+  },
+
+  {
     slug: "how-to-calculate-business-days-between-two-dates",
     title: {
       en: "How to Calculate Business Days Between Two Dates",

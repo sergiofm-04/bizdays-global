@@ -34,7 +34,7 @@ export const blogPosts: BlogPost[] = [
       en: `
 <p>Spreadsheets are great for planning — until you need <strong>business days</strong> instead of calendar days. The moment you must exclude weekends and public holidays, manual counting becomes error-prone.</p>
 
-<p><strong>Related country calculators:</strong> <a href="/en/calculator/business-days/espana">Spain</a>, <a href="/en/calculator/business-days/united-states-of-america">United States</a>, <a href="/en/calculator/business-days/mexico">Mexico</a>, <a href="/en/calculator/business-days/united-kingdom">United Kingdom</a>.</p>
+<div class="related-links"><p><strong>Related country calculators:</strong> <a href="/en/calculator/business-days/espana">Spain</a>, <a href="/en/calculator/business-days/united-states-of-america">United States</a>, <a href="/en/calculator/business-days/mexico">Mexico</a>, <a href="/en/calculator/business-days/united-kingdom">United Kingdom</a>.</p></div>
 
 <p>In this guide you’ll learn the practical Excel and Google Sheets formulas to:</p>
 <ul>
@@ -114,7 +114,7 @@ export const blogPosts: BlogPost[] = [
       es: `
 <p>Las hojas de cálculo son geniales para planificar — hasta que necesitas <strong>días laborables</strong> en lugar de días naturales. En cuanto hay que excluir fines de semana y festivos, contar a mano se vuelve propenso a errores.</p>
 
-<p><strong>Calculadoras relacionadas:</strong> <a href="/es/calculator/business-days/espana">España</a>, <a href="/es/calculator/business-days/united-states-of-america">Estados Unidos</a>, <a href="/es/calculator/business-days/mexico">México</a>, <a href="/es/calculator/business-days/united-kingdom">Reino Unido</a>.</p>
+<div class="related-links"><p><strong>Calculadoras relacionadas:</strong> <a href="/es/calculator/business-days/espana">España</a>, <a href="/es/calculator/business-days/united-states-of-america">Estados Unidos</a>, <a href="/es/calculator/business-days/mexico">México</a>, <a href="/es/calculator/business-days/united-kingdom">Reino Unido</a>.</p></div>
 
 <p>En esta guía verás fórmulas prácticas para Excel y Google Sheets que te permiten:</p>
 <ul>
@@ -220,7 +220,7 @@ export const blogPosts: BlogPost[] = [
       en: `
 <p>“Net 30” sounds simple: pay within 30 days. But in real operations, there’s a huge difference between <strong>Net 30 days</strong> (calendar days) and <strong>Net 30 business days</strong> (working days).</p>
 
-<p><strong>Try it by country:</strong> <a href="/en/calculator/business-days/espana">Spain</a>, <a href="/en/calculator/business-days/united-states-of-america">United States</a>, <a href="/en/calculator/business-days/mexico">Mexico</a>, <a href="/en/calculator/business-days/brasil">Brazil</a>.</p>
+<div class="related-links"><p><strong>Try it by country:</strong> <a href="/en/calculator/business-days/espana">Spain</a>, <a href="/en/calculator/business-days/united-states-of-america">United States</a>, <a href="/en/calculator/business-days/mexico">Mexico</a>, <a href="/en/calculator/business-days/brasil">Brazil</a>.</p></div>
 
 <h2>Why it matters</h2>
 <ul>
@@ -257,7 +257,7 @@ export const blogPosts: BlogPost[] = [
       es: `
 <p>“Net 30” parece simple: pagar en 30 días. Pero en la práctica hay una diferencia enorme entre <strong>Net 30 días</strong> (días naturales) y <strong>Net 30 días laborables</strong> (días hábiles).</p>
 
-<p><strong>Pruébalo por país:</strong> <a href="/es/calculator/business-days/espana">España</a>, <a href="/es/calculator/business-days/united-states-of-america">Estados Unidos</a>, <a href="/es/calculator/business-days/mexico">México</a>, <a href="/es/calculator/business-days/brasil">Brasil</a>.</p>
+<div class="related-links"><p><strong>Pruébalo por país:</strong> <a href="/es/calculator/business-days/espana">España</a>, <a href="/es/calculator/business-days/united-states-of-america">Estados Unidos</a>, <a href="/es/calculator/business-days/mexico">México</a>, <a href="/es/calculator/business-days/brasil">Brasil</a>.</p></div>
 
 <h2>Por qué importa</h2>
 <ul>
@@ -320,7 +320,7 @@ export const blogPosts: BlogPost[] = [
       en: `
 <p>Logistics and service teams rarely work in “calendar days”. Quotes often look like: <strong>“15 business days”</strong>, <strong>“T+2”</strong>, or <strong>“response within 5 business days”</strong>. The challenge is translating that into a real date you can communicate.</p>
 
-<p><strong>Popular routes:</strong> <a href="/en/calculator/business-days/espana">Spain</a>, <a href="/en/calculator/business-days/france">France</a>, <a href="/en/calculator/business-days/deutschland">Germany</a>, <a href="/en/calculator/business-days/italia">Italy</a>.</p>
+<div class="related-links"><p><strong>Popular routes:</strong> <a href="/en/calculator/business-days/espana">Spain</a>, <a href="/en/calculator/business-days/france">France</a>, <a href="/en/calculator/business-days/deutschland">Germany</a>, <a href="/en/calculator/business-days/italia">Italy</a>.</p></div>
 
 <h2>Step 1: Clarify what “business day” means</h2>
 <ul>
@@ -423,6 +423,8 @@ export const blogPosts: BlogPost[] = [
       en: `
 <p>Whether you're planning a delivery, managing a project deadline, or scheduling a contract milestone, knowing exactly how many <strong>business days</strong> fall between two dates is essential. Unlike calendar days, business days exclude weekends and public holidays — and getting the count wrong can mean missed deadlines, late shipments, or compliance issues.</p>
 
+<div class="related-links"><p><strong>Try it by country:</strong> <a href="/en/calculator/business-days/espana">Spain</a>, <a href="/en/calculator/business-days/united-states-of-america">United States</a>, <a href="/en/calculator/business-days/united-kingdom">United Kingdom</a>, <a href="/en/calculator/business-days/mexico">Mexico</a>.</p></div>
+
 <p>In this comprehensive guide, we'll explain what business days are, walk you through the calculation step-by-step, cover international complications, and show you how to get instant results using our free calculator.</p>
 
 <h2>What Are Business Days?</h2>
@@ -514,6 +516,8 @@ export const blogPosts: BlogPost[] = [
 `,
       es: `
 <p>Ya sea que estés planificando una entrega, gestionando un plazo de proyecto o programando un hito contractual, saber exactamente cuántos <strong>días laborables</strong> hay entre dos fechas es fundamental. A diferencia de los días naturales, los días laborables excluyen fines de semana y festivos — y equivocarse en el cálculo puede significar plazos incumplidos, envíos retrasados o problemas de cumplimiento.</p>
+
+<div class="related-links"><p><strong>Pruébalo por país:</strong> <a href="/es/calculator/business-days/espana">España</a>, <a href="/es/calculator/business-days/united-states-of-america">Estados Unidos</a>, <a href="/es/calculator/business-days/united-kingdom">Reino Unido</a>, <a href="/es/calculator/business-days/mexico">México</a>.</p></div>
 
 <p>En esta guía completa, te explicaremos qué son los días laborables, te guiaremos paso a paso en el cálculo, cubriremos las complicaciones internacionales y te mostraremos cómo obtener resultados instantáneos con nuestra calculadora gratuita.</p>
 
@@ -634,6 +638,8 @@ export const blogPosts: BlogPost[] = [
     body: {
       en: `
 <p>Managing an international team, coordinating cross-border shipments, or handling global contracts means navigating a maze of different public holidays. What's a normal working day in New York might be a national holiday in Tokyo — and overlooking that fact can derail your planning.</p>
+
+<div class="related-links"><p><strong>Check by country:</strong> <a href="/en/calculator/business-days/united-states-of-america">United States</a>, <a href="/en/calculator/business-days/espana">Spain</a>, <a href="/en/calculator/business-days/united-kingdom">United Kingdom</a>, <a href="/en/calculator/business-days/japan">Japan</a>.</p></div>
 
 <p>This guide covers the <strong>key public holidays in 2025</strong> for the world's major economies, helping you plan deadlines, schedule meetings, and anticipate slowdowns before they happen.</p>
 

@@ -156,6 +156,11 @@ const dictionaries: Record<Locale, Dictionary> = {
         button: "Go to the blog",
         readMore: "Read article",
       },
+      countries: {
+        title: "Browse country pages",
+        subtitle:
+          "Quick links to popular country calculators — useful for bookmarking and sharing.",
+      },
       cta: {
         title: "Ready to calculate?",
         subtitle: "Scroll up and try the calculator — it takes 5 seconds.",
@@ -591,6 +596,11 @@ const dictionaries: Record<Locale, Dictionary> = {
           "Guías prácticas sobre días laborables, festivos y planificación de plazos para equipos internacionales.",
         button: "Ir al blog",
         readMore: "Leer artículo",
+      },
+      countries: {
+        title: "Explora páginas por país",
+        subtitle:
+          "Accesos directos a calculadoras de países populares — útil para guardar y compartir.",
       },
       cta: {
         title: "¿Listo para calcular?",

@@ -79,6 +79,10 @@ export interface Dictionary {
       button: string;
       readMore: string;
     };
+    countries: {
+      title: string;
+      subtitle: string;
+    };
     cta: {
       title: string;
       subtitle: string;

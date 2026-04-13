@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 
 import { isValidLocale, getDictionary } from "@/lib/i18n";
-import { getSupportedCountries } from "@/lib/countries";
+import { countryNameToSlug, getCountryName, getSupportedCountries } from "@/lib/countries";
 import { getAllPosts } from "@/lib/blog";
 import { CalculatorForm } from "@/components/calculator/calculator-form";
 import { HeroGlobe } from "@/components/illustrations/hero-globe";
@@ -33,6 +33,7 @@ interface HomePageProps {
 
 const FEATURE_ICONS = [Globe, Zap, CalendarCheck, ArrowLeftRight, UserX, FileText];
 const USE_CASE_ICONS = [Truck, Users, Scale, LayoutDashboard];
+const POPULAR_COUNTRY_CODES = ["ES", "US", "GB", "MX", "FR", "DE", "IT", "BR"] as const;
 
 export default async function HomePage({ params }: HomePageProps) {
   const { lang } = await params;
@@ -46,6 +47,14 @@ export default async function HomePage({ params }: HomePageProps) {
   const countries = getSupportedCountries();
   const h = dict.home;
   const latestPosts = getAllPosts().slice(0, 3);
+  const popularCountryLinks = POPULAR_COUNTRY_CODES.map((code) => {
+    const name = getCountryName(code);
+    return {
+      code,
+      name,
+      href: `/${locale}/calculator/business-days/${countryNameToSlug(name)}`,
+    };
+  });
 
   return (
     <>
@@ -126,6 +135,30 @@ export default async function HomePage({ params }: HomePageProps) {
       <section id="calculator" className="scroll-mt-20 py-12 sm:py-16 bg-white">
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
           <CalculatorForm countries={countries} dict={dict.calculator} lang={locale} />
+        </div>
+      </section>
+
+      {/* ── Countries quick links ── */}
+      <section className="py-12 sm:py-16 bg-grey-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+            <h2 className="text-2xl sm:text-3xl font-bold text-grey-900 tracking-tight">
+              {h.countries.title}
+            </h2>
+            <p className="mt-3 text-base text-grey-500">{h.countries.subtitle}</p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-2.5">
+            {popularCountryLinks.map((c) => (
+              <Link
+                key={c.code}
+                href={c.href}
+                className="rounded-full border border-grey-200 bg-white px-4 py-2 text-sm font-medium text-grey-700 transition-colors hover:border-primary-200 hover:text-primary-700"
+              >
+                {c.name}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

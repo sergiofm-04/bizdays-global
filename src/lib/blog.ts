@@ -34,6 +34,8 @@ export const blogPosts: BlogPost[] = [
       en: `
 <p>Spreadsheets are great for planning — until you need <strong>business days</strong> instead of calendar days. The moment you must exclude weekends and public holidays, manual counting becomes error-prone.</p>
 
+<p><strong>Related country calculators:</strong> <a href="/en/calculator/business-days/espana">Spain</a>, <a href="/en/calculator/business-days/united-states-of-america">United States</a>, <a href="/en/calculator/business-days/mexico">Mexico</a>, <a href="/en/calculator/business-days/united-kingdom">United Kingdom</a>.</p>
+
 <p>In this guide you’ll learn the practical Excel and Google Sheets formulas to:</p>
 <ul>
   <li><strong>Count</strong> business days between two dates</li>
@@ -111,6 +113,8 @@ export const blogPosts: BlogPost[] = [
 `,
       es: `
 <p>Las hojas de cálculo son geniales para planificar — hasta que necesitas <strong>días laborables</strong> en lugar de días naturales. En cuanto hay que excluir fines de semana y festivos, contar a mano se vuelve propenso a errores.</p>
+
+<p><strong>Calculadoras relacionadas:</strong> <a href="/es/calculator/business-days/espana">España</a>, <a href="/es/calculator/business-days/united-states-of-america">Estados Unidos</a>, <a href="/es/calculator/business-days/mexico">México</a>, <a href="/es/calculator/business-days/united-kingdom">Reino Unido</a>.</p>
 
 <p>En esta guía verás fórmulas prácticas para Excel y Google Sheets que te permiten:</p>
 <ul>
@@ -216,6 +220,8 @@ export const blogPosts: BlogPost[] = [
       en: `
 <p>“Net 30” sounds simple: pay within 30 days. But in real operations, there’s a huge difference between <strong>Net 30 days</strong> (calendar days) and <strong>Net 30 business days</strong> (working days).</p>
 
+<p><strong>Try it by country:</strong> <a href="/en/calculator/business-days/espana">Spain</a>, <a href="/en/calculator/business-days/united-states-of-america">United States</a>, <a href="/en/calculator/business-days/mexico">Mexico</a>, <a href="/en/calculator/business-days/brasil">Brazil</a>.</p>
+
 <h2>Why it matters</h2>
 <ul>
   <li><strong>Cash flow:</strong> a 2–3 week shift changes your forecast.</li>
@@ -250,6 +256,8 @@ export const blogPosts: BlogPost[] = [
 `,
       es: `
 <p>“Net 30” parece simple: pagar en 30 días. Pero en la práctica hay una diferencia enorme entre <strong>Net 30 días</strong> (días naturales) y <strong>Net 30 días laborables</strong> (días hábiles).</p>
+
+<p><strong>Pruébalo por país:</strong> <a href="/es/calculator/business-days/espana">España</a>, <a href="/es/calculator/business-days/united-states-of-america">Estados Unidos</a>, <a href="/es/calculator/business-days/mexico">México</a>, <a href="/es/calculator/business-days/brasil">Brasil</a>.</p>
 
 <h2>Por qué importa</h2>
 <ul>
@@ -312,6 +320,8 @@ export const blogPosts: BlogPost[] = [
       en: `
 <p>Logistics and service teams rarely work in “calendar days”. Quotes often look like: <strong>“15 business days”</strong>, <strong>“T+2”</strong>, or <strong>“response within 5 business days”</strong>. The challenge is translating that into a real date you can communicate.</p>
 
+<p><strong>Popular routes:</strong> <a href="/en/calculator/business-days/espana">Spain</a>, <a href="/en/calculator/business-days/france">France</a>, <a href="/en/calculator/business-days/deutschland">Germany</a>, <a href="/en/calculator/business-days/italia">Italy</a>.</p>
+
 <h2>Step 1: Clarify what “business day” means</h2>
 <ul>
   <li><strong>Weekend rule:</strong> Is Saturday excluded? Is Sunday always excluded?</li>
@@ -347,6 +357,8 @@ export const blogPosts: BlogPost[] = [
 `,
       es: `
 <p>En logística y en soporte, rara vez se trabaja en “días naturales”. Es habitual ver plazos como <strong>“15 días laborables”</strong>, <strong>“T+2”</strong> o <strong>“respuesta en 5 días laborables”</strong>. El reto es convertirlo en una fecha real que puedas comunicar.</p>
+
+<p><strong>Rutas habituales:</strong> <a href="/es/calculator/business-days/espana">España</a>, <a href="/es/calculator/business-days/france">Francia</a>, <a href="/es/calculator/business-days/deutschland">Alemania</a>, <a href="/es/calculator/business-days/italia">Italia</a>.</p>
 
 <h2>Paso 1: Aclara qué significa “día laborable”</h2>
 <ul>

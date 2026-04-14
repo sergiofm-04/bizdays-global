@@ -103,8 +103,6 @@ export default async function BlogArticlePage({
       {/* Hero */}
       <section className="bg-gradient-to-b from-primary-950 via-primary-900 to-primary-800 py-12 sm:py-16">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
-            [&_.related-links]:my-6 [&_.related-links]:rounded-2xl [&_.related-links]:border [&_.related-links]:border-grey-100 [&_.related-links]:bg-grey-50 [&_.related-links]:px-5 [&_.related-links]:py-4
-            [&_.related-links_p]:my-0 [&_.related-links_strong]:text-grey-900"
           {/* Back link */}
           <Link
             href={`/${locale}/blog`}
@@ -158,7 +156,9 @@ export default async function BlogArticlePage({
             prose-p:leading-relaxed prose-p:text-grey-600
             prose-li:text-grey-600
             prose-strong:text-grey-800
-            prose-a:text-primary-600 prose-a:underline prose-a:underline-offset-4 hover:prose-a:text-primary-700"
+            [&_a]:text-primary-600 [&_a]:underline [&_a]:underline-offset-4 [&_a:hover]:text-primary-700
+            [&_.related-links]:my-6 [&_.related-links]:rounded-2xl [&_.related-links]:border [&_.related-links]:border-grey-100 [&_.related-links]:bg-grey-50 [&_.related-links]:px-5 [&_.related-links]:py-4
+            [&_.related-links_p]:my-0 [&_.related-links_strong]:text-grey-900"
           dangerouslySetInnerHTML={{ __html: post.body[locale] }}
         />
 

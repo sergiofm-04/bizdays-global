@@ -124,8 +124,14 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
 
         {/* Bottom wave divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto block" preserveAspectRatio="none">
+        <div className="absolute bottom-[-1px] left-0 right-0">
+          <svg
+            viewBox="0 0 1440 60"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full h-auto block"
+            preserveAspectRatio="none"
+          >
             <path d="M0 60h1440V30C1320 10 1200 0 1080 5 960 10 840 30 720 35 600 40 480 25 360 20 240 15 120 20 0 30V60Z" fill="white"/>
           </svg>
         </div>
@@ -196,7 +202,7 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       {/* ── How It Works ── */}
-      <section id="how-it-works" className="scroll-mt-20 py-16 sm:py-24 bg-white">
+      <section id="how-it-works" className="scroll-mt-20 py-16 sm:py-24 bg-grey-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-grey-900 tracking-tight">
@@ -228,7 +234,7 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       {/* ── Use Cases ── */}
-      <section className="py-16 sm:py-24 bg-grey-50">
+      <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-grey-900 tracking-tight">
@@ -268,7 +274,7 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       {/* ── FAQ ── */}
-      <section id="faq" className="scroll-mt-20 py-16 sm:py-24 bg-white">
+      <section id="faq" className="scroll-mt-20 py-16 sm:py-24 bg-grey-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-grey-900 tracking-tight">
@@ -295,7 +301,7 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       {/* ── Blog ── */}
-      <section className="py-16 sm:py-24 bg-grey-50">
+      <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-grey-900 tracking-tight">
@@ -343,7 +349,7 @@ export default async function HomePage({ params }: HomePageProps) {
       <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 pt-0 pb-16 sm:pb-20">
         {/* Wave divider — seamless transition from grey section above */}
         <div className="w-full overflow-hidden leading-[0]">
-          <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto block text-grey-50" preserveAspectRatio="none">
+          <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto block text-white" preserveAspectRatio="none">
             <path d="M0 0h1440v20C1320 60 1200 80 1080 70 960 60 840 30 720 25 600 20 480 45 360 55 240 65 120 50 0 40V0Z" fill="currentColor"/>
           </svg>
         </div>

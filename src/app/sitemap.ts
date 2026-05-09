@@ -15,15 +15,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const countrySlugs = getAllCountrySlugs();
 
-  const entries: MetadataRoute.Sitemap = [
-    // Root
-    {
-      url: SITE_URL,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-  ];
+  // Note: the site root "/" redirects to a locale (e.g. /en).
+  // Keep the sitemap focused on indexable, canonical URLs.
+  const entries: MetadataRoute.Sitemap = [];
 
   // Locale home pages
   for (const locale of LOCALES) {

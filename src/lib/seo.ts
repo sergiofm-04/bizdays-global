@@ -12,8 +12,7 @@ import { getDictionary } from "@/lib/i18n";
  */
 export function generateBaseMetadata(locale: Locale): Metadata {
   const dict = getDictionary(locale);
-  const SITE_URL =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com";
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com";
   const ogImage =
     locale === "es"
       ? `${SITE_URL}/images/og/og-es.png`
@@ -36,9 +35,7 @@ export function generateBaseMetadata(locale: Locale): Metadata {
     ],
     authors: [{ name: "BizDays Global" }],
     creator: "BizDays Global",
-    metadataBase: new URL(
-      process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdays.global"
-    ),
+    metadataBase: new URL(SITE_URL),
     openGraph: {
       type: "website",
       locale: locale === "es" ? "es_ES" : "en_US",
@@ -72,10 +69,10 @@ export function generateBaseMetadata(locale: Locale): Metadata {
       },
     },
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com"}/`,
+      canonical: `${SITE_URL}/${locale}`,
       languages: {
-        en: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com"}/en`,
-        es: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com"}/es`,
+        en: `${SITE_URL}/en`,
+        es: `${SITE_URL}/es`,
       },
     },
   };

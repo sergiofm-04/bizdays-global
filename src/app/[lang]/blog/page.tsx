@@ -9,7 +9,8 @@ import { isValidLocale, getDictionary } from "@/lib/i18n";
 import { getAllPosts } from "@/lib/blog";
 import type { Locale } from "@/types";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com";
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.bizdaysglobal.com";
 
 const blogMeta: Record<Locale, { title: string; description: string }> = {
   en: {

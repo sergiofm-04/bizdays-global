@@ -6,7 +6,8 @@ import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 import "./globals.css";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com";
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.bizdaysglobal.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

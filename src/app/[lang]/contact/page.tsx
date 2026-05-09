@@ -10,7 +10,8 @@ import { isValidLocale, getDictionary } from "@/lib/i18n";
 import { ContactForm } from "@/components/contact/contact-form";
 import type { Locale } from "@/types";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com";
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.bizdaysglobal.com";
 
 interface PageProps {
   params: Promise<{ lang: string }>;

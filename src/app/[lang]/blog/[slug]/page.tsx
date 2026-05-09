@@ -11,7 +11,8 @@ import { getPostBySlug, getAllPostSlugs } from "@/lib/blog";
 import { locales } from "@/lib/i18n";
 import type { Locale } from "@/types";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com";
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.bizdaysglobal.com";
 
 /* ── Static params ── */
 export async function generateStaticParams() {

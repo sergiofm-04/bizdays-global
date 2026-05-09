@@ -3,7 +3,7 @@ import { getAllCountrySlugs, isIndexableCountryCode } from "@/lib/countries";
 import { getAllPostSlugs } from "@/lib/blog";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.bizdaysglobal.com";
 
 const LOCALES = ["en", "es"] as const;
 

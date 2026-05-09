@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 
 /* ────────────────────────────────────────────
    Root page — Redirects to default locale.
@@ -8,6 +8,6 @@ import { redirect } from "next/navigation";
    ──────────────────────────────────────────── */
 
 export default function RootPage() {
-  redirect("/en");
+  permanentRedirect("/en");
 }
 

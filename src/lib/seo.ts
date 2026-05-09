@@ -12,7 +12,8 @@ import { getDictionary } from "@/lib/i18n";
  */
 export function generateBaseMetadata(locale: Locale): Metadata {
   const dict = getDictionary(locale);
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com";
+  const SITE_URL =
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.bizdaysglobal.com";
   const ogImage =
     locale === "es"
       ? `${SITE_URL}/images/og/og-es.png`
@@ -103,10 +104,10 @@ export function generateCountryMetadata(
       url: `/${locale}/calculator/business-days/${countrySlug}`,
     },
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com"}/${locale}/calculator/business-days/${countrySlug}`,
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.bizdaysglobal.com"}/${locale}/calculator/business-days/${countrySlug}`,
       languages: {
-        en: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com"}/en/calculator/business-days/${countrySlug}`,
-        es: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://bizdaysglobal.com"}/es/calculator/business-days/${countrySlug}`,
+        en: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.bizdaysglobal.com"}/en/calculator/business-days/${countrySlug}`,
+        es: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.bizdaysglobal.com"}/es/calculator/business-days/${countrySlug}`,
       },
     },
   };

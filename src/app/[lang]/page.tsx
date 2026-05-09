@@ -21,7 +21,12 @@ import {
 } from "lucide-react";
 
 import { isValidLocale, getDictionary } from "@/lib/i18n";
-import { countryNameToSlug, getCountryName, getSupportedCountries } from "@/lib/countries";
+import {
+  countryNameToSlug,
+  getCountryName,
+  getSupportedCountries,
+  INDEXABLE_COUNTRY_CODES,
+} from "@/lib/countries";
 import { getAllPosts } from "@/lib/blog";
 import { CalculatorForm } from "@/components/calculator/calculator-form";
 import { HeroGlobe } from "@/components/illustrations/hero-globe";
@@ -33,7 +38,6 @@ interface HomePageProps {
 
 const FEATURE_ICONS = [Globe, Zap, CalendarCheck, ArrowLeftRight, UserX, FileText];
 const USE_CASE_ICONS = [Truck, Users, Scale, LayoutDashboard];
-const POPULAR_COUNTRY_CODES = ["ES", "US", "GB", "MX", "FR", "DE", "IT", "BR"] as const;
 
 export default async function HomePage({ params }: HomePageProps) {
   const { lang } = await params;
@@ -47,7 +51,7 @@ export default async function HomePage({ params }: HomePageProps) {
   const countries = getSupportedCountries();
   const h = dict.home;
   const latestPosts = getAllPosts().slice(0, 3);
-  const popularCountryLinks = POPULAR_COUNTRY_CODES.map((code) => {
+  const popularCountryLinks = INDEXABLE_COUNTRY_CODES.map((code) => {
     const name = getCountryName(code);
     return {
       code,

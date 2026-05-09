@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: dict.legal.legalNotice.title,
     description: dict.legal.legalNotice.description,
+    robots: { index: false, follow: true, googleBot: { index: false, follow: true } },
     alternates: {
       canonical: `${SITE_URL}/${lang}/legal/notice`,
       languages: { en: `${SITE_URL}/en/legal/notice`, es: `${SITE_URL}/es/legal/notice` },

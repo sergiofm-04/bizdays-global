@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: dict.legal.cookies.title,
     description: dict.legal.cookies.description,
+    robots: { index: false, follow: true, googleBot: { index: false, follow: true } },
     alternates: {
       canonical: `${SITE_URL}/${lang}/legal/cookie-policy`,
       languages: { en: `${SITE_URL}/en/legal/cookie-policy`, es: `${SITE_URL}/es/legal/cookie-policy` },

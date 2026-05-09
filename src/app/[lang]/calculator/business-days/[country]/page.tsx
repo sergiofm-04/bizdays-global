@@ -14,6 +14,7 @@ import {
   getCountryByLegacySlug,
   getAllCountrySlugs,
   countryNameToSlug,
+  isIndexableCountryCode,
 } from "@/lib/countries";
 import { getHolidaysForYear } from "@/lib/business-days";
 import { CalculatorForm } from "@/components/calculator/calculator-form";
@@ -45,7 +46,23 @@ export async function generateMetadata({ params }: CountryPageProps) {
   const countryData = getCountryBySlug(countrySlug);
   if (!countryData) return {};
 
-  return generateCountryMetadata(lang, countryData.name, countrySlug);
+  const base = generateCountryMetadata(lang, countryData.name, countrySlug);
+  const indexable = isIndexableCountryCode(countryData.code);
+
+  return {
+    ...base,
+    robots: indexable
+      ? {
+          index: true,
+          follow: true,
+          googleBot: { index: true, follow: true },
+        }
+      : {
+          index: false,
+          follow: true,
+          googleBot: { index: false, follow: true },
+        },
+  };
 }
 
 export default async function CountryCalculatorPage({

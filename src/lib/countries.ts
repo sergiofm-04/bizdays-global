@@ -6,6 +6,16 @@
 import Holidays from "date-holidays";
 import type { Country, CountryCode } from "@/types";
 
+// AdSense-first indexing strategy:
+// Keep a small, high-quality subset of programmatic country pages indexable.
+// The rest remain accessible to users but are marked noindex to reduce low-value signals.
+export const INDEXABLE_COUNTRY_CODES = ["ES", "US", "GB", "MX", "FR", "DE", "IT", "BR"] as const;
+const INDEXABLE_COUNTRY_CODE_SET = new Set<string>(INDEXABLE_COUNTRY_CODES);
+
+export function isIndexableCountryCode(code: string): boolean {
+  return INDEXABLE_COUNTRY_CODE_SET.has(code.toUpperCase());
+}
+
 /** Cached list of supported countries */
 let cachedCountries: Country[] | null = null;
 

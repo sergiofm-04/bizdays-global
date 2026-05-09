@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllCountrySlugs } from "@/lib/countries";
+import { getAllCountrySlugs, isIndexableCountryCode } from "@/lib/countries";
 import { getAllPostSlugs } from "@/lib/blog";
 
 const SITE_URL =
@@ -13,7 +13,7 @@ const LOCALES = ["en", "es"] as const;
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const countrySlugs = getAllCountrySlugs();
+  const countrySlugs = getAllCountrySlugs().filter((c) => isIndexableCountryCode(c.code));
 
   // Note: the site root "/" redirects to a locale (e.g. /en).
   // Keep the sitemap focused on indexable, canonical URLs.
@@ -41,33 +41,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // Legal pages
-  const legalPages = [
-    "privacy-policy",
-    "terms-of-service",
-    "cookie-policy",
-    "notice",
-  ];
-  for (const locale of LOCALES) {
-    for (const page of legalPages) {
-      entries.push({
-        url: `${SITE_URL}/${locale}/legal/${page}`,
-        lastModified: now,
-        changeFrequency: "yearly",
-        priority: 0.3,
-      });
-    }
-  }
-
-  // Contact page
-  for (const locale of LOCALES) {
-    entries.push({
-      url: `${SITE_URL}/${locale}/contact`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.4,
-    });
-  }
+  // Note: legal/contact pages remain accessible but are intentionally omitted from sitemap
+  // to keep the sitemap focused on core indexable content.
 
   // Blog listing
   for (const locale of LOCALES) {

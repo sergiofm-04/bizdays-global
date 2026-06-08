@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "bizdaysglobal.com"
+        }
+      ],
+      "destination": "https://www.bizdaysglobal.com/:path*",
+      "permanent": true
+    }
+  ]
+}

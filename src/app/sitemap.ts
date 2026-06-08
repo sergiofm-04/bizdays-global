@@ -9,7 +9,7 @@ const LOCALES = ["en", "es"] as const;
 
 /**
  * Sitemap — All indexable pages across both locales.
- * Includes home, calculator country pages, legal, and contact.
+ * Includes home, about, calculator country pages, legal, and contact.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -26,6 +26,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
+    });
+  }
+
+  // About page
+  for (const locale of LOCALES) {
+    entries.push({
+      url: `${SITE_URL}/${locale}/about`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
     });
   }
 

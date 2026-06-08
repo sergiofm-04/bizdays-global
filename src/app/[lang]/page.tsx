@@ -304,6 +304,102 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
       </section>
 
+      {/* ── About / Trust ── */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary-600">
+                {locale === "es" ? "Acerca de BizDays Global" : "About BizDays Global"}
+              </p>
+              <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-grey-900">
+                {locale === "es"
+                  ? "Una calculadora construida para equipos que necesitan fechas fiables"
+                  : "A calculator built for teams that need reliable dates"}
+              </h2>
+              <p className="mt-5 text-lg leading-8 text-grey-600">
+                {locale === "es"
+                  ? "BizDays Global nace para resolver un problema muy concreto: convertir plazos como ‘15 días laborables’ en fechas reales, sin hojas de cálculo frágiles ni calendarios manuales difíciles de mantener."
+                  : "BizDays Global exists to solve one specific problem: turning lead times like ‘15 business days’ into real dates without fragile spreadsheets or manual calendars that are hard to maintain."}
+              </p>
+              <p className="mt-4 text-base leading-8 text-grey-500">
+                {locale === "es"
+                  ? "Combinamos datos de festivos por país, reglas de fin de semana y páginas editoriales pensadas para ayudar a logísticas, RRHH, finanzas y legal a trabajar con más precisión y menos fricción."
+                  : "We combine country holiday data, weekend rules, and editorial content to help logistics, HR, finance, and legal teams work with more accuracy and less friction."}
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                {[
+                  locale === "es" ? "Datos por país" : "Country data",
+                  locale === "es" ? "Sin registro" : "No signup",
+                  locale === "es" ? "Contenido útil" : "Useful content",
+                ].map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-grey-200 bg-grey-50 px-4 py-2 text-sm font-medium text-grey-700"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-8">
+                <Link
+                  href={`/${locale}/about`}
+                  className="inline-flex items-center gap-2 rounded-full bg-primary-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-primary-700 hover:-translate-y-px"
+                >
+                  {locale === "es" ? "Conoce la historia" : "Learn our story"}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                {
+                  title: locale === "es" ? "Señales de confianza" : "Trust signals",
+                  text:
+                    locale === "es"
+                      ? "Mostramos páginas editoriales, enlaces visibles y contenido de soporte para que Google y los usuarios entiendan el valor real del sitio."
+                      : "We surface editorial pages, visible links, and support content so both Google and users can understand the site's real value.",
+                },
+                {
+                  title: locale === "es" ? "Pensado para B2B" : "Built for B2B",
+                  text:
+                    locale === "es"
+                      ? "La herramienta está orientada a plazos, entregas, contratos y calendarios de trabajo reales, no a una demo superficial."
+                      : "The tool is aimed at deadlines, deliveries, contracts, and real work calendars, not a thin demo.",
+                },
+                {
+                  title: locale === "es" ? "Contenido útil" : "Useful content",
+                  text:
+                    locale === "es"
+                      ? "Publicamos guías prácticas para búsquedas reales como días laborables, festivos y plazos de entrega."
+                      : "We publish practical guides for real searches around business days, holidays, and delivery deadlines.",
+                },
+                {
+                  title: locale === "es" ? "Cobertura global" : "Global coverage",
+                  text:
+                    locale === "es"
+                      ? "Más de 170 países con páginas dedicadas y festividades actualizadas para trabajar a nivel internacional."
+                      : "170+ countries with dedicated pages and updated holiday data for international work.",
+                },
+              ].map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-2xl border border-grey-100 bg-grey-50 p-5 shadow-sm"
+                >
+                  <h3 className="text-base font-semibold text-grey-900">
+                    {card.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-7 text-grey-600">
+                    {card.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Blog ── */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

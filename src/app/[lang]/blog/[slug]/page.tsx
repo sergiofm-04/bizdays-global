@@ -166,8 +166,8 @@ export default async function BlogArticlePage({
             prose-lg prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-grey-900
             prose-h2:mt-12 prose-h2:mb-5 prose-h2:text-2xl prose-h2:scroll-mt-24
             prose-h3:mt-9 prose-h3:mb-3 prose-h3:text-lg prose-h3:scroll-mt-24
-            prose-p:mb-5 prose-p:text-[17px] prose-p:leading-8 prose-p:text-grey-700 prose-p:text-justify
-            prose-li:mb-2 prose-li:text-[17px] prose-li:leading-8 prose-li:text-grey-700
+            prose-p:mt-0 prose-p:mb-6 prose-p:text-[17px] prose-p:leading-8 prose-p:text-grey-700 prose-p:text-justify
+            prose-ul:my-6 prose-ol:my-6 prose-li:my-2 prose-li:text-[17px] prose-li:leading-8 prose-li:text-grey-700
             prose-strong:text-grey-800
             prose-pre:my-6 prose-pre:overflow-x-auto prose-pre:rounded-2xl prose-pre:bg-grey-950 prose-pre:p-4 prose-pre:text-grey-100
             prose-code:rounded prose-code:bg-grey-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-[0.9em]

@@ -63,6 +63,7 @@ function Header({ lang, nav }: HeaderProps) {
     { href: `/${lang}#how-it-works`, label: nav.howItWorks },
     { href: `/${lang}#faq`, label: nav.faq },
     { href: `/${lang}/blog`, label: nav.blog },
+    { href: `/${lang}/about`, label: nav.about },
   ];
 
   return (

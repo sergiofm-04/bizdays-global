@@ -7,6 +7,122 @@ import type { BlogPost } from "@/types/blog";
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "business-days-calculator-guide",
+    title: {
+      en: "Business Days Calculator: How to Choose a Reliable Tool",
+      es: "Calculadora de días laborables: cómo elegir una herramienta fiable",
+    },
+    description: {
+      en: "If you searched for a business days calculator, this guide explains what a reliable one should include: country holidays, weekend rules, readable results, and reusable workflows.",
+      es: "Si buscas una calculadora de días laborables, esta guía explica qué debería incluir una herramienta fiable: festivos por país, reglas de fin de semana, resultados claros y flujos reutilizables.",
+    },
+    publishedAt: "2026-06-08",
+    updatedAt: "2026-06-08",
+    readingTime: { en: "8 min read", es: "8 min de lectura" },
+    author: "BizDays Global",
+    keywords: [
+      "business days calculator",
+      "calculadora de días laborables",
+      "working days calculator",
+      "how to choose business days calculator",
+      "días laborables",
+    ],
+    category: { en: "Guides", es: "Guías" },
+    body: {
+      en: `
+<p>If you searched for a <strong>business days calculator</strong>, you probably want one thing: a fast, reliable way to turn a lead time into a real date. But not every calculator is good enough for actual work.</p>
+
+<div class="related-links"><p><strong>Try it by country:</strong> <a href="/en/calculator/business-days/espana">Spain</a>, <a href="/en/calculator/business-days/united-states-of-america">United States</a>, <a href="/en/calculator/business-days/united-kingdom">United Kingdom</a>, <a href="/en/calculator/business-days/mexico">Mexico</a>.</p></div>
+
+<p>In practice, a good calculator should do more than count weekdays. It should help you explain <em>why</em> a date changes, what holidays were skipped, and how the result fits into your workflow.</p>
+
+<h2>What a reliable calculator should include</h2>
+<ul>
+  <li><strong>Country-specific holidays:</strong> so the result matches the local calendar.</li>
+  <li><strong>Weekend rules:</strong> because not every country uses the same working week.</li>
+  <li><strong>Backward counting:</strong> useful when you know a due date and need the latest start date.</li>
+  <li><strong>Visible result breakdown:</strong> weekends and holidays skipped should be easy to review.</li>
+  <li><strong>Reusable country pages:</strong> useful when teams need the same rule repeatedly.</li>
+</ul>
+
+<h2>Why many tools feel incomplete</h2>
+<p>Some calculators only work for a generic Monday-to-Friday week. Others hide the skipped holidays, which makes it difficult to validate the output or use it in a client-facing process.</p>
+
+<p>That’s a problem if you work in logistics, finance, HR, or legal, where even a one-day mistake can affect delivery commitments, payment terms, or compliance deadlines.</p>
+
+<h2>How to use BizDays Global</h2>
+<ol>
+  <li>Select your country.</li>
+  <li>Choose a start date.</li>
+  <li>Enter the number of business days to add or subtract.</li>
+  <li>Check the skipped weekends and holidays.</li>
+  <li>Use the result in your workflow or share it with your team.</li>
+</ol>
+
+<h2>When to use a calculator versus a spreadsheet</h2>
+<p>Use a spreadsheet if you need a reusable model across many records. Use a calculator if you want a clean answer quickly, with less setup and fewer maintenance tasks.</p>
+
+<h2>Quick checklist</h2>
+<ul>
+  <li>Is the country correct?</li>
+  <li>Are Saturdays included or excluded?</li>
+  <li>Does the output show the skipped holidays?</li>
+  <li>Can you trust the page on mobile?</li>
+  <li>Does the site explain how the result was calculated?</li>
+</ul>
+
+<h2>Conclusion</h2>
+<p>The best business days calculator is not the one with the shortest output. It is the one that helps you trust the result, reuse it, and explain it to someone else. That is the standard BizDays Global is built for.</p>
+`,
+      es: `
+<p>Si has buscado una <strong>calculadora de días laborables</strong>, probablemente quieres una sola cosa: una forma rápida y fiable de convertir un plazo en una fecha real. Pero no todas las calculadoras sirven para trabajo serio.</p>
+
+<div class="related-links"><p><strong>Pruébalo por país:</strong> <a href="/es/calculator/business-days/espana">España</a>, <a href="/es/calculator/business-days/united-states-of-america">Estados Unidos</a>, <a href="/es/calculator/business-days/united-kingdom">Reino Unido</a>, <a href="/es/calculator/business-days/mexico">México</a>.</p></div>
+
+<p>En la práctica, una buena calculadora no solo debe contar días laborables. También debe ayudarte a explicar <em>por qué</em> cambia una fecha, qué festivos se han saltado y cómo encaja el resultado en tu flujo de trabajo.</p>
+
+<h2>Qué debería incluir una herramienta fiable</h2>
+<ul>
+  <li><strong>Festivos por país:</strong> para que el resultado respete el calendario local.</li>
+  <li><strong>Reglas de fin de semana:</strong> porque no todos los países usan la misma semana laboral.</li>
+  <li><strong>Conteo hacia atrás:</strong> útil cuando conoces la fecha límite y necesitas la fecha de inicio más tardía.</li>
+  <li><strong>Desglose visible del resultado:</strong> los fines de semana y festivos omitidos deben verse claramente.</li>
+  <li><strong>Páginas reutilizables por país:</strong> muy útil para equipos que repiten el mismo cálculo muchas veces.</li>
+</ul>
+
+<h2>Por qué muchas herramientas se quedan cortas</h2>
+<p>Algunas calculadoras solo funcionan para un horario genérico de lunes a viernes. Otras ocultan los festivos omitidos, lo que dificulta validar el resultado o usarlo en un proceso con clientes.</p>
+
+<p>Eso es un problema si trabajas en logística, finanzas, RRHH o legal, donde un error de un solo día puede afectar entregas, pagos o plazos de cumplimiento.</p>
+
+<h2>Cómo usar BizDays Global</h2>
+<ol>
+  <li>Selecciona tu país.</li>
+  <li>Elige una fecha de inicio.</li>
+  <li>Introduce los días laborables que quieres sumar o restar.</li>
+  <li>Revisa los fines de semana y festivos omitidos.</li>
+  <li>Usa el resultado en tu flujo de trabajo o compártelo con tu equipo.</li>
+</ol>
+
+<h2>Cuándo usar una calculadora y cuándo una hoja de cálculo</h2>
+<p>Usa una hoja de cálculo si necesitas un modelo reutilizable sobre muchos registros. Usa una calculadora si quieres una respuesta limpia al momento, con menos configuración y menos mantenimiento.</p>
+
+<h2>Checklist rápido</h2>
+<ul>
+  <li>¿El país es correcto?</li>
+  <li>¿Los sábados cuentan o no?</li>
+  <li>¿El resultado muestra los festivos omitidos?</li>
+  <li>¿Se ve bien en móvil?</li>
+  <li>¿El sitio explica cómo se calculó el resultado?</li>
+</ul>
+
+<h2>Conclusión</h2>
+<p>La mejor calculadora de días laborables no es la que enseña el resultado más corto. Es la que te ayuda a confiar en él, reutilizarlo y explicarlo a otra persona. Ese es el estándar para el que está construida BizDays Global.</p>
+`,
+    },
+  },
+
+  {
     slug: "business-days-in-excel-and-google-sheets",
     title: {
       en: "Business Days in Excel & Google Sheets (With Holidays)",

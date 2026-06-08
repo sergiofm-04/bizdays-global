@@ -107,6 +107,38 @@ export const blogPosts: BlogPost[] = [
   <li><strong>Industry exceptions:</strong> some teams treat Saturdays as working days.</li>
 </ul>
 
+<h2>Who should use this workflow?</h2>
+
+<p>This approach is a good fit if you regularly need to turn dates into real delivery or deadline dates in a spreadsheet. It works especially well for:</p>
+
+<ul>
+  <li><strong>Operations teams</strong> that need a repeatable way to calculate lead times.</li>
+  <li><strong>Finance teams</strong> that track settlement windows and payment terms.</li>
+  <li><strong>HR teams</strong> that manage notice periods or onboarding dates.</li>
+  <li><strong>Project managers</strong> that want a single calendar rule across teams.</li>
+</ul>
+
+<h2>Quick checklist before you trust a formula</h2>
+
+<ol>
+  <li>Confirm that the start and end cells are true dates.</li>
+  <li>Check whether Saturdays count as workdays in your process.</li>
+  <li>Verify the holiday range includes the correct year.</li>
+  <li>Decide whether the rule should include the start date or start counting the next business day.</li>
+  <li>Test one known example before rolling the formula into a live sheet.</li>
+</ol>
+
+<h2>Mini FAQ</h2>
+
+<h3>Can I count business days backward?</h3>
+<p>Yes. In both Excel and Google Sheets, you can use a negative number in <strong>WORKDAY</strong> to go backward from a reference date.</p>
+
+<h3>What if my country has regional holidays?</h3>
+<p>Use a holiday list that matches the exact region you care about. National calendars are a good start, but they are not always enough for local operations.</p>
+
+<h3>Is it better to use a spreadsheet or a calculator?</h3>
+<p>Use the spreadsheet if you need a reusable model or reporting. Use the calculator if you need a quick, verified result without maintaining holiday lists by hand.</p>
+
 <h2>Conclusion</h2>
 
 <p>With <strong>NETWORKDAYS</strong> / <strong>WORKDAY</strong> (and their <strong>.INTL</strong> variants), you can make Excel/Sheets handle business days reliably — as long as your holiday list is correct.</p>
@@ -185,6 +217,38 @@ export const blogPosts: BlogPost[] = [
   <li><strong>Listas incompletas:</strong> muchos países tienen festivos regionales.</li>
   <li><strong>Excepciones por sector:</strong> en algunos casos el sábado es laborable.</li>
 </ul>
+
+<h2>Quién debería usar este flujo</h2>
+
+<p>Este método encaja muy bien si conviertes fechas en plazos reales de entrega o vencimiento dentro de una hoja de cálculo. Suele ser especialmente útil para:</p>
+
+<ul>
+  <li><strong>Operaciones</strong> que necesitan una forma repetible de calcular lead times.</li>
+  <li><strong>Finanzas</strong> que controlan ventanas de liquidación y condiciones de pago.</li>
+  <li><strong>RRHH</strong> que gestiona periodos de preaviso o fechas de incorporación.</li>
+  <li><strong>Project managers</strong> que quieren una sola regla de calendario para todo el equipo.</li>
+</ul>
+
+<h2>Checklist rápido antes de confiar en la fórmula</h2>
+
+<ol>
+  <li>Confirma que las celdas de inicio y fin son fechas reales.</li>
+  <li>Revisa si los sábados cuentan como laborables en tu proceso.</li>
+  <li>Verifica que el rango de festivos incluya el año correcto.</li>
+  <li>Define si la regla incluye el día de inicio o empieza a contar al siguiente día laborable.</li>
+  <li>Prueba un ejemplo conocido antes de llevar la fórmula a una hoja real.</li>
+</ol>
+
+<h2>Mini FAQ</h2>
+
+<h3>¿Puedo contar días laborables hacia atrás?</h3>
+<p>Sí. En Excel y Google Sheets puedes usar un número negativo en <strong>WORKDAY</strong> para retroceder desde una fecha de referencia.</p>
+
+<h3>¿Qué hago si mi país tiene festivos regionales?</h3>
+<p>Usa una lista de festivos que corresponda exactamente a la región que te interesa. El calendario nacional es un buen punto de partida, pero no siempre es suficiente.</p>
+
+<h3>¿Es mejor usar una hoja de cálculo o una calculadora?</h3>
+<p>Usa la hoja si necesitas un modelo reutilizable o reporting. Usa la calculadora si quieres un resultado rápido y verificado sin mantener listas de festivos a mano.</p>
 
 <h2>Conclusión</h2>
 

@@ -148,17 +148,32 @@ export default async function BlogArticlePage({
       </section>
 
       {/* Article body */}
-      <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
+      <article className="mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-14">
+        <div className="mb-8 rounded-3xl border border-grey-100 bg-gradient-to-br from-white to-grey-50 p-6 shadow-sm sm:p-8">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary-600">
+            {post.category[locale]}
+          </p>
+          <h2 className="mt-2 text-2xl font-bold tracking-tight text-grey-900 sm:text-3xl">
+            {post.title[locale]}
+          </h2>
+          <p className="mt-3 max-w-3xl text-base leading-8 text-grey-600 sm:text-lg">
+            {post.description[locale]}
+          </p>
+        </div>
+
         <div
           className="prose prose-grey max-w-none
-            prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-grey-900
-            prose-h2:mt-10 prose-h2:mb-4 prose-h2:text-xl prose-h2:sm:text-2xl
-            prose-h3:mt-8 prose-h3:mb-3 prose-h3:text-lg
-            prose-p:leading-relaxed prose-p:text-grey-600
-            prose-li:text-grey-600
+            prose-lg prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-grey-900
+            prose-h2:mt-12 prose-h2:mb-5 prose-h2:text-2xl prose-h2:scroll-mt-24
+            prose-h3:mt-9 prose-h3:mb-3 prose-h3:text-lg prose-h3:scroll-mt-24
+            prose-p:mb-5 prose-p:text-[17px] prose-p:leading-8 prose-p:text-grey-700 prose-p:text-justify
+            prose-li:mb-2 prose-li:text-[17px] prose-li:leading-8 prose-li:text-grey-700
             prose-strong:text-grey-800
-            [&_a]:text-primary-600 [&_a]:underline [&_a]:underline-offset-4 [&_a:hover]:text-primary-700
-            [&_.related-links]:my-6 [&_.related-links]:rounded-2xl [&_.related-links]:border [&_.related-links]:border-grey-100 [&_.related-links]:bg-grey-50 [&_.related-links]:px-5 [&_.related-links]:py-4
+            prose-pre:my-6 prose-pre:overflow-x-auto prose-pre:rounded-2xl prose-pre:bg-grey-950 prose-pre:p-4 prose-pre:text-grey-100
+            prose-code:rounded prose-code:bg-grey-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-[0.9em]
+            prose-blockquote:border-l-4 prose-blockquote:border-primary-200 prose-blockquote:bg-primary-50 prose-blockquote:px-5 prose-blockquote:py-4 prose-blockquote:italic prose-blockquote:text-grey-700
+            [&_a]:text-primary-600 [&_a]:font-medium [&_a]:underline [&_a]:underline-offset-4 [&_a:hover]:text-primary-700
+            [&_.related-links]:my-8 [&_.related-links]:rounded-2xl [&_.related-links]:border [&_.related-links]:border-grey-100 [&_.related-links]:bg-grey-50 [&_.related-links]:px-5 [&_.related-links]:py-4
             [&_.related-links_p]:my-0 [&_.related-links_strong]:text-grey-900"
           dangerouslySetInnerHTML={{ __html: post.body[locale] }}
         />

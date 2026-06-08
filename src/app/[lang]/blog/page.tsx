@@ -74,13 +74,27 @@ export default async function BlogPage({
     <div className="bg-white">
       {/* Hero */}
       <section className="bg-gradient-to-b from-primary-950 via-primary-900 to-primary-800 py-16 sm:py-20">
-        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
+        <div className="mx-auto max-w-5xl px-4 text-center sm:px-6">
           <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
             {heading}
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-primary-200 sm:text-lg">
             {subtitle}
           </p>
+          <div className="mx-auto mt-8 grid max-w-3xl gap-3 sm:grid-cols-3">
+            {[
+              locale === "es" ? "Guías largas y útiles" : "Long-form practical guides",
+              locale === "es" ? "Ejemplos copiables" : "Copyable examples",
+              locale === "es" ? "Enlaces internos visibles" : "Visible internal links",
+            ].map((item) => (
+              <div
+                key={item}
+                className="rounded-2xl border border-white/10 bg-white/8 px-4 py-3 text-sm font-medium text-white/90 backdrop-blur"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -90,7 +104,7 @@ export default async function BlogPage({
           {posts.map((post) => (
             <article
               key={post.slug}
-              className="group rounded-2xl border border-grey-100 bg-white p-6 shadow-sm transition-all hover:border-primary-200 hover:shadow-md sm:p-8"
+              className="group rounded-3xl border border-grey-100 bg-white p-6 shadow-sm transition-all hover:border-primary-200 hover:shadow-lg sm:p-8"
             >
               {/* Category + reading time */}
               <div className="mb-3 flex flex-wrap items-center gap-3 text-xs text-grey-400">
@@ -119,7 +133,7 @@ export default async function BlogPage({
               </h2>
 
               {/* Description */}
-              <p className="mt-3 text-sm leading-relaxed text-grey-500 sm:text-base">
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-grey-500 sm:text-base sm:leading-8">
                 {post.description[locale]}
               </p>
 
